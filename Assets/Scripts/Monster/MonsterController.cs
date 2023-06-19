@@ -11,7 +11,8 @@ public class MonsterController : MonoBehaviour
     private Rigidbody2D target;
 
     private SpriteRenderer render;
-    private bool isAlive = true;
+
+    private float hp = 1f;
 
     private void Awake()
     {
@@ -36,5 +37,27 @@ public class MonsterController : MonoBehaviour
         // monster에서 player로 가는 방향을 구하고 플레이어의 방향으로 지속적으로 이동
         Vector2 dirVec = target.position - rb.position;
         rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void TakeHit(float damage)
+    {
+        hp -= damage;
+        if (hp < 0)
+        {
+            Die();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Weapon"))
+        {
+            TakeHit(1f);
+        }
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
     }
 }

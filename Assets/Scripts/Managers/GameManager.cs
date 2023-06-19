@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public static PoolManager Pool { get { return poolManager; } }
     public static ResourceManager Resource { get { return resourceManager; } }
 
+    public float gameTime;
+    public float maxGameTime;
+
     private void Awake()
     {
         if (instance != null)
