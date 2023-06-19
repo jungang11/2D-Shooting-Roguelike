@@ -5,10 +5,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float moveSpeed; // 플레이어 이동속도
+    [SerializeField] private float moveSpeed; // 플레이어 이동속도
 
     private Rigidbody2D rb;         // RigidBody2D
     private Animator anim;          // Animator
+    private SpriteRenderer render;  // 캐릭터 flip 변경
 
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
 
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        render = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -36,5 +38,10 @@ public class PlayerController : MonoBehaviour
         inputDir = value.Get<Vector2>();
         // Animator Parameter 의 Speed 값 변경. magnitude : 순수한 크기
         anim.SetFloat("Speed", inputDir.magnitude);
+        // 이동중일 때 입력 방향에 따라 render의 flipX 변경
+        if (inputDir.x != 0)
+        {
+            render.flipX = (inputDir.x > 0);
+        }
     }
 }
