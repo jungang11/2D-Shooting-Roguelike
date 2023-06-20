@@ -44,7 +44,7 @@ public class RangedWeapon : Weapon
         // 리소스매니저를 이용해 Resource의 Fire 프리팹을 가져와 사용
         Fire fire = GameManager.Resource.Instantiate<Fire>("Prefab/Fire", firePoint.position, firePoint.rotation);
         fire.SetTarget(enemy);
-        fire.SetDamage(2f);
+        fire.SetDamage(1f);
     }
 
     IEnumerator LookRoutine()

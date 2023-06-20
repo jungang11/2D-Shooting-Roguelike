@@ -11,6 +11,8 @@ public class Fire : MonoBehaviour
     private float damage;
     private Vector3 targetPoint;
 
+    public float FireDamage { get { return damage; } }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,8 +40,7 @@ public class Fire : MonoBehaviour
             Vector2 dirVec = targetPoint - transform.position;
             transform.rotation = Quaternion.FromToRotation(Vector3.up, dirVec.normalized);
             rb.MovePosition(rb.position + dirVec.normalized * speed * Time.fixedDeltaTime);
-
-            // 총알의 위치가 타겟의 위치와 가까워질 경우 공격으로 판정
+            
             if (Vector2.Distance(targetPoint, transform.position) < 0.2f)
             {
                 if (monster != null)

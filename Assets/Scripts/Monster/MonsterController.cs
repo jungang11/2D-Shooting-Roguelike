@@ -9,10 +9,10 @@ public class MonsterController : MonoBehaviour
     
     private Rigidbody2D rb;
     private Rigidbody2D target;
-
     private SpriteRenderer render;
 
     private float hp = 1f;
+    private bool isAlive = true;
 
     private void Awake()
     {
@@ -50,14 +50,21 @@ public class MonsterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Weapon"))
+        if (collision.CompareTag("CloseWeapon"))
         {
-            TakeHit(1f);
+            TakeHit(collision.GetComponent<Spear>().damage);
         }
+        else if (collision.CompareTag("Fire"))
+        {
+            TakeHit(collision.GetComponent<Fire>().FireDamage);
+        }
+        else
+            return;
     }
 
     public void Die()
     {
+        isAlive = false;
         gameObject.SetActive(false);
     }
 }

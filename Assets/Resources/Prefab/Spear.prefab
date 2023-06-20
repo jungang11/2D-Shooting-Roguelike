@@ -10,15 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 7273930161601407878}
   - component: {fileID: 7273930161601407877}
-  - component: {fileID: 7273930161601407876}
   - component: {fileID: 7273930161601407883}
+  - component: {fileID: -7424594270839282588}
   m_Layer: 7
-  m_Name: Bullet 1
-  m_TagString: Weapon
+  m_Name: Spear
+  m_TagString: CloseWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7273930161601407878
 Transform:
   m_ObjectHideFlags: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7273930161601407876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7273930161601407879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &7273930161601407883
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,3 +112,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3888889, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-7424594270839282588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7273930161601407879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021cfa93f829743408f1c9b8f417160c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  per: 0

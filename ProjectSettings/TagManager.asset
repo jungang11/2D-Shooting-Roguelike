@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Monster
   - Weapon
+  - CloseWeapon
+  - Fire
   layers:
   - Default
   - TransparentFX
