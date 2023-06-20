@@ -7,11 +7,14 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private static PoolManager poolManager;
     private static ResourceManager resourceManager;
+    private static DataManager dataManager;
+
     public static PlayerController playerController;
 
     public static GameManager Instance { get { return instance; } }
     public static PoolManager Pool { get { return poolManager; } }
     public static ResourceManager Resource { get { return resourceManager; } }
+    public static DataManager Data { get { return dataManager; } }
 
     public float gameTime = 0;
     public float maxGameTime = 300;
@@ -54,5 +57,10 @@ public class GameManager : MonoBehaviour
         poolObj.name = "PoolManager";
         poolObj.transform.parent = transform;
         poolManager = poolObj.AddComponent<PoolManager>();
+
+        GameObject dataObj = new GameObject();
+        dataObj.name = "DataManager";
+        dataObj.transform.parent = transform;
+        dataManager = dataObj.AddComponent<DataManager>();
     }
 }

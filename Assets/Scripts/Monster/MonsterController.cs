@@ -73,6 +73,8 @@ public class MonsterController : MonoBehaviour
             rb.simulated = false;
             render.sortingOrder = -2;
             Die();
+            GameManager.Data.kill++;
+            GameManager.Data.GetExp();
         }
         else
         {
@@ -94,6 +96,8 @@ public class MonsterController : MonoBehaviour
         {
             player.TakeHit(1f);
         }
+        else if (!isAlive)
+            return;
         else
             return;
     }
