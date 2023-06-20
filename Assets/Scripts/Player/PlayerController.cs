@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -12,6 +13,12 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer render;  // 캐릭터 flip 변경
 
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
+
+    [SerializeField] private float hp;
+    public float HP { get { return hp; } private set { hp = value; OnChangedHP?.Invoke(hp); } }
+
+    public UnityEvent<float> OnChangedHP;
+    public UnityEvent OnDied;
 
     private void Awake()
     {
@@ -42,6 +49,17 @@ public class PlayerController : MonoBehaviour
         if (inputDir.x != 0)
         {
             render.flipX = (inputDir.x > 0);
+        }
+    }
+
+    public void TakeHit(float damage)
+    {
+        HP -= damage;
+
+        if (hp <= 0)
+        {
+            OnDied?.Invoke();
+            GameManager.Resource.Destroy(gameObject);
         }
     }
 }

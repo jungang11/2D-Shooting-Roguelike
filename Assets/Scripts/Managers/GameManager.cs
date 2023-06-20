@@ -7,15 +7,14 @@ public class GameManager : MonoBehaviour
     private static GameManager instance;
     private static PoolManager poolManager;
     private static ResourceManager resourceManager;
-    //private static MonsterSpawn spawnManager;
+    public static PlayerController playerController;
 
     public static GameManager Instance { get { return instance; } }
     public static PoolManager Pool { get { return poolManager; } }
     public static ResourceManager Resource { get { return resourceManager; } }
-    //public static MonsterSpawn Spawn { get { return spawnManager; } }
 
-    public float gameTime;
-    public float maxGameTime;
+    public float gameTime = 0;
+    public float maxGameTime = 300;
 
     private void Awake()
     {
@@ -28,6 +27,13 @@ public class GameManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this);
         InitManagers();
+    }
+
+    private void Update()
+    {
+        gameTime += Time.deltaTime;
+        if(gameTime > maxGameTime)
+            gameTime = maxGameTime;
     }
 
     private void OnDestroy()
@@ -48,10 +54,5 @@ public class GameManager : MonoBehaviour
         poolObj.name = "PoolManager";
         poolObj.transform.parent = transform;
         poolManager = poolObj.AddComponent<PoolManager>();
-
-        /*GameObject spawnObj = new GameObject();
-        spawnObj.name = "SpawnManager";
-        spawnObj.transform.parent = transform;
-        spawnManager = spawnObj.AddComponent<MonsterSpawn>();*/
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RangedWeapon : Weapon
 {
-    [SerializeField] Transform firePoint;   // 총알 발사 위치
+    [SerializeField] Transform firePoint;       // 총알 발사 위치
+    [SerializeField] Fire firePrefab;     // 총알
 
     protected override void Awake()
     {
@@ -28,8 +29,7 @@ public class RangedWeapon : Weapon
         {
             if (monsterList.Count > 0)
             {
-                Attack(monsterList[0]);
-                Debug.Log("Attack");
+                Fire(monsterList[0]);
                 yield return new WaitForSeconds(0.2f);  // 총알 발사 딜레이
             }
             else
@@ -39,10 +39,10 @@ public class RangedWeapon : Weapon
         }
     }
 
-    public void Attack(MonsterController enemy)
+    public void Fire(MonsterController enemy)
     {
         // 리소스매니저를 이용해 Resource의 Fire 프리팹을 가져와 사용
-        Fire fire = GameManager.Resource.Instantiate<Fire>("Prefab/Fire", firePoint.position, firePoint.rotation);
+        Fire fire = GameManager.Pool.Get(firePrefab, firePoint.position, firePoint.rotation);
         fire.SetTarget(enemy);
         fire.SetDamage(1f);
     }

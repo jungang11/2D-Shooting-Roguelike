@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class MonsterSpawn : MonoBehaviour
 {
-    [SerializeField] float spawnDelay;  // 몬스터 생성 딜레이
-    [SerializeField] GameObject spawnPrefab;
+    [SerializeField] float spawnDelay;          // 몬스터 생성 딜레이
+    [SerializeField] GameObject[] spawnPrefabs; // 스폰 몬스터 프리팹들
 
-    private BoxCollider2D area; // 몬스터 생성 범위
+    private BoxCollider2D area;                                 // 몬스터 생성 범위
     public List<GameObject> monsters = new List<GameObject>();  // 몬스터 리스트
 
     private void Awake()
@@ -33,7 +33,7 @@ public class MonsterSpawn : MonoBehaviour
             Vector3 spawnPos = GetRandomPosition();
 
             // 설정된 enemyPrefab을 랜덤 spawnPos에 생성후 리스트에 추가. spawnDelay 시간이 지난 후 반복
-            GameObject instance = GameManager.Pool.Get<GameObject>(spawnPrefab, spawnPos, Quaternion.identity);
+            GameObject instance = GameManager.Pool.Get(spawnPrefabs[0], spawnPos, Quaternion.identity);
             // monsters.Add(instance);
             yield return new WaitForSeconds(spawnDelay);
         }

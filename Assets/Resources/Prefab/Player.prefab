@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 857549959}
+  firePrefab: {fileID: 0}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,10 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  count: 2
+  damage: 1
+  count: 5
   speed: 3
-  spearPrefab: {fileID: 0}
+  closeWeaponPrefab: {fileID: 0}
   place: {fileID: 959229859296903099}
 --- !u!1 &1951175191250887372
 GameObject:
@@ -401,6 +402,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6131136557402642595}
   - component: {fileID: 8739763389353814936}
+  - component: {fileID: 7199581242062773294}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -481,6 +483,19 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7199581242062773294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951175191250887372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1306cd234557f96418956d0d3e190b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2191940861471866692}
 --- !u!1 &2191940861471866691
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,6 +689,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  hp: 0
+  OnChangedHP:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &3971166025316277711
 GameObject:
   m_ObjectHideFlags: 0
@@ -710,7 +732,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1817631590946413888
 CanvasRenderer:

@@ -1,23 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
+    [SerializeField] PlayerController player;
+
     private float moveSpeed = 1f;            // 몬스터 이동속도
     
     private Rigidbody2D rb;
     private Rigidbody2D target;
-    private SpriteRenderer render;
 
-    private float hp = 1f;
-    private bool isAlive = true;
+    private Collider2D col;
+    private SpriteRenderer render;
+    private Animator anim;
+
+    private float hp = 10f;
+    private float maxHp = 10f;
+    private bool isAlive;
+    public bool IsAlive { get { return isAlive; } }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         render = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         target = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
@@ -39,24 +49,46 @@ public class MonsterController : MonoBehaviour
         rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
+    IEnumerator TakeHitRoutine()
+    {
+        Vector3 dirVec = transform.position - target.transform.position;    // 플레이어 기준의 반대 방향
+        rb.AddForce(dirVec.normalized * 5f, ForceMode2D.Impulse);   // 플레이어의 반대 방향으로 넉백
+
+        yield return null;
+    }
+
     public void TakeHit(float damage)
     {
+        anim.SetTrigger("TakeHit");
+
         hp -= damage;
         if (hp < 0)
         {
+            isAlive = false;
+            col.enabled = false;
+            rb.simulated = false;
+            render.sortingOrder = -2;
             Die();
+        }
+        else
+        {
+            StartCoroutine(TakeHitRoutine());
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("CloseWeapon"))
         {
-            TakeHit(collision.GetComponent<Spear>().damage);
+            TakeHit(collision.GetComponent<CloseWeapon>().damage);
         }
         else if (collision.CompareTag("Fire"))
         {
             TakeHit(collision.GetComponent<Fire>().FireDamage);
+        }
+        else if (collision.CompareTag("Player"))
+        {
+            player.TakeHit(1f);
         }
         else
             return;
@@ -64,7 +96,6 @@ public class MonsterController : MonoBehaviour
 
     public void Die()
     {
-        isAlive = false;
         gameObject.SetActive(false);
     }
 }

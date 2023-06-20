@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fire : MonoBehaviour
+public class Fire : RangedWeapon
 {
     [SerializeField] float speed;   // 총알 발사 속도
 
@@ -13,8 +13,10 @@ public class Fire : MonoBehaviour
 
     public float FireDamage { get { return damage; } }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -44,9 +46,9 @@ public class Fire : MonoBehaviour
             if (Vector2.Distance(targetPoint, transform.position) < 0.2f)
             {
                 if (monster != null)
-                    Attack(monster);
+                    HitMonster(monster);
 
-                GameManager.Resource.Destroy(gameObject);
+                GameManager.Pool.Release(gameObject);
                 yield break;
             }
 
@@ -54,7 +56,7 @@ public class Fire : MonoBehaviour
         }
     }
 
-    public void Attack(MonsterController monster)
+    public void HitMonster(MonsterController monster)
     {
         monster.TakeHit(damage);
     }

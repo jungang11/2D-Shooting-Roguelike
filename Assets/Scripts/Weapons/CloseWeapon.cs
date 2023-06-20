@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CloseWeapon : Weapon
 {
-    public float damage;
-    public int count;
-    public float speed;
-    public Spear spearPrefab;
-    public Transform place;
+    public float damage;        // 데미지
+    public int count;           // 배치 무기 갯수
+    public float speed;         // 속도
+    public CloseWeapon closeWeaponPrefab;   // 배치될 프리팹
+    public Transform place;     // 배치될 위치
 
     // public float Damage { get { return damage; } }
 
@@ -39,7 +39,7 @@ public class CloseWeapon : Weapon
     {
         for (int i = 0; i < count; i++)
         {
-            place = GameManager.Pool.Get(spearPrefab).transform;
+            place = GameManager.Pool.Get(closeWeaponPrefab).transform;
             place.SetParent(transform);
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
