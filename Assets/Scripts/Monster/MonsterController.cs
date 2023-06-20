@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour
 
     private float hp = 10f;
     private float maxHp = 10f;
-    private bool isAlive;
+    private bool isAlive = true;
     public bool IsAlive { get { return isAlive; } }
 
     private void Awake()
@@ -33,6 +33,10 @@ public class MonsterController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // 현재 상태가 Alive가 아니거나 / TakeHit 애니메이션이 진행중일 때 return
+        if (!isAlive || anim.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
+            return;
+
         Chase();
     }
 
@@ -52,7 +56,7 @@ public class MonsterController : MonoBehaviour
     IEnumerator TakeHitRoutine()
     {
         Vector3 dirVec = transform.position - target.transform.position;    // 플레이어 기준의 반대 방향
-        rb.AddForce(dirVec.normalized * 5f, ForceMode2D.Impulse);   // 플레이어의 반대 방향으로 넉백
+        rb.AddForce(dirVec.normalized * 4f, ForceMode2D.Force);   // 플레이어의 반대 방향으로 넉백
 
         yield return null;
     }

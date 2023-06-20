@@ -259,7 +259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1646984977
 Transform:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 857549959}
-  firePrefab: {fileID: 0}
+  firePrefab: {fileID: -8610424659711316348, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,10 +387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  count: 5
+  damage: 0.5
+  count: 4
   speed: 3
-  closeWeaponPrefab: {fileID: 0}
+  closeWeaponPrefab: {fileID: -7424594270839282588, guid: 9d782dbe988d0774e8cbbc529c0ab65f, type: 3}
   place: {fileID: 959229859296903099}
 --- !u!1 &1951175191250887372
 GameObject:
@@ -689,7 +689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  hp: 0
+  hp: 20
   OnChangedHP:
     m_PersistentCalls:
       m_Calls: []
