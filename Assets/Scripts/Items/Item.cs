@@ -22,8 +22,33 @@ public class Item : MonoBehaviour
         levelText = texts[0];
     }
 
-    public void ClickButton()
+    public void LevelUpText()
     {
         levelText.text = ($"Lv {level++}");
+    }
+
+    public void OnClick()
+    {
+        switch (data.Items[0].itemType)
+        {
+            case ItemData.ItemType.CloseWeapon:
+
+                break;
+            case ItemData.ItemType.RangedWeapon:
+
+                break;
+            case ItemData.ItemType.Passive:
+
+                break;
+            case ItemData.ItemType.Heal:
+
+                break;
+        }
+        level++;
+
+        if(level == data.Items[0].damages.Length)
+        {
+            GetComponent<Button>().interactable = false;
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RangedWeapon : Weapon
 {
-    [SerializeField] Transform firePoint;       // ÃÑ¾Ë ¹ß»ç À§Ä¡
+    [SerializeField] Transform firePoint; // ÃÑ¾Ë ¹ß»ç À§Ä¡
     [SerializeField] Fire firePrefab;     // ÃÑ¾Ë
 
     protected override void Awake()

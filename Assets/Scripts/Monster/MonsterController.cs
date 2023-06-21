@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour
 
     private float hp = 10f;
     private float maxHp = 10f;
-    private bool isAlive = true;
+    private bool isAlive;
     public bool IsAlive { get { return isAlive; } }
 
     private void Awake()
@@ -29,6 +29,12 @@ public class MonsterController : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         target = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+    }
+
+    public void Init()
+    {
+        isAlive = true;
+        hp = maxHp;
     }
 
     private void FixedUpdate()
@@ -68,10 +74,6 @@ public class MonsterController : MonoBehaviour
         hp -= damage;
         if (hp < 0)
         {
-            isAlive = false;
-            col.enabled = false;
-            rb.simulated = false;
-            render.sortingOrder = -2;
             Die();
             GameManager.Data.kill++;
             GameManager.Data.GetExp();
@@ -104,6 +106,7 @@ public class MonsterController : MonoBehaviour
 
     public void Die()
     {
+        isAlive = false;
         gameObject.SetActive(false);
     }
 }

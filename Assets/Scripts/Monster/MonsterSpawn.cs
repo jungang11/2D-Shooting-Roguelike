@@ -9,14 +9,21 @@ public class MonsterSpawn : MonoBehaviour
 
     private BoxCollider2D area;                                 // 몬스터 생성 범위
     public List<GameObject> monsters = new List<GameObject>();  // 몬스터 리스트
+    private int poolSize = 10;
 
     private void Awake()
     {
         area = GetComponent<BoxCollider2D>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        for(int i = 0; i < poolSize; i++)
+        {
+            monsters.Add(GameManager.Pool.Get(spawnPrefabs[i]));
+            monsters[i].name = "Enemy " + i;
+            monsters[i].SetActive(false);
+        }
         StartCoroutine(SpawnRoutine());
     }
 
@@ -29,13 +36,24 @@ public class MonsterSpawn : MonoBehaviour
     {
         while (true)
         {
-            // Vector3 값인 랜덤 위치를 받아옴
-            Vector3 spawnPos = GetRandomPosition();
-
-            // 설정된 enemyPrefab을 랜덤 spawnPos에 생성후 리스트에 추가. spawnDelay 시간이 지난 후 반복
-            GameObject instance = GameManager.Pool.Get(spawnPrefabs[0], spawnPos, Quaternion.identity);
-            // monsters.Add(instance);
+            // 스폰 딜레이
             yield return new WaitForSeconds(spawnDelay);
+
+            for (int i = 0 ; i < poolSize; i++)
+            {
+                if (monsters[i].activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                    continue;
+
+                // Vector3 값인 랜덤 위치를 받아옴
+                Vector3 spawnPos = GetRandomPosition();
+
+                // 몬스터의 위치를 spawnPos로 설정 후 활성화
+                monsters[i].transform.position = spawnPos;
+                monsters[i].SetActive(true);
+                monsters[i].GetComponent<MonsterController>().Init();
+
+                break;
+            }
         }
     }
 

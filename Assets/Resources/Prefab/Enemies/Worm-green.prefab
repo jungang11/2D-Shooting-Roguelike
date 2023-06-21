@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1694547012}
   - component: {fileID: 1694547014}
   - component: {fileID: 1694547013}
+  - component: {fileID: -7128240285141702153}
   m_Layer: 6
   m_Name: Worm-green
   m_TagString: Monster
@@ -137,6 +138,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9725644924f1de34e8a6481727e21986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+--- !u!95 &-7128240285141702153
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128062837747197330}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04fde021519879e4aaf5081d78eb9444, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7090437496977486222
 GameObject:
   m_ObjectHideFlags: 0
