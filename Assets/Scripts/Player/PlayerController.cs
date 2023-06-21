@@ -6,18 +6,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private float hp;
     [SerializeField] private float moveSpeed; // 플레이어 이동속도
 
     private Rigidbody2D rb;         // RigidBody2D
     private Animator anim;          // Animator
     private SpriteRenderer render;  // 캐릭터 flip 변경
+    private float exp;
 
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
 
-    [SerializeField] private float hp;
     public float HP { get { return hp; } private set { hp = value; OnChangedHP?.Invoke(hp); } }
+    public float EXP { get { return exp; } private set { exp = value; OnChangedEXP?.Invoke(exp); } }
 
     public UnityEvent<float> OnChangedHP;
+    public UnityEvent<float> OnChangedEXP;
     public UnityEvent OnDied;
 
     private void Awake()
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
+        exp = GameManager.Data.exp;
     }
 
     private void FixedUpdate()

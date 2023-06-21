@@ -17,14 +17,10 @@ public class ExpBar : MonoBehaviour
     {
         slider.maxValue = GameManager.Data.nextExp[GameManager.Data.level];
         slider.value = GameManager.Data.exp;
-
-        StartCoroutine(ExpRoutine());
     }
 
-    IEnumerator ExpRoutine()
+    public void SetValue(float value)
     {
         slider.value = GameManager.Data.exp;
-
-        yield return null;
     }
 }

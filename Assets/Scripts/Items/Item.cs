@@ -32,7 +32,7 @@ public class Item : MonoBehaviour
         switch (data.Items[0].itemType)
         {
             case ItemData.ItemType.CloseWeapon:
-
+                data.Items[0].baseCount++;
                 break;
             case ItemData.ItemType.RangedWeapon:
 

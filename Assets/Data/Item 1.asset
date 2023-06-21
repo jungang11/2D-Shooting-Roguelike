@@ -16,7 +16,7 @@ MonoBehaviour:
   - itemId: 1
     itemName: Fire
     itemDesc: "\uCD1D\uC54C"
-    itemImg: {fileID: -353751291, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    itemImg: {fileID: -537537479, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
     itemType: 1
     baseDamage: 1
     baseCount: 1

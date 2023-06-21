@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CloseWeapon : Weapon
 {
-    public float damage;        // 데미지
-    public int count;           // 배치 무기 갯수
-    public float speed;         // 속도
+    public float damage;                    // 데미지
+    public int count;                       // 배치 무기 갯수
+    public float speed;                     // 속도
     public CloseWeapon closeWeaponPrefab;   // 배치될 프리팹
-    public Transform place;     // 배치될 위치
+    public Transform place;                 // 배치될 위치
 
     // public float Damage { get { return damage; } }
 
@@ -30,7 +30,7 @@ public class CloseWeapon : Weapon
 
     public void SetSpear()
     {
-        speed = 100f;
+        speed = 120f;
         Place();
     }
 
@@ -44,7 +44,7 @@ public class CloseWeapon : Weapon
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             place.Rotate(rotVec);
-            place.Translate(place.up * 1.5f, Space.World);
+            place.Translate(place.up * 2f, Space.World);
             place.GetComponent<Spear>().Setting(damage, -1);
         }
     }

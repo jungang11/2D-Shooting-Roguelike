@@ -16,7 +16,7 @@ MonoBehaviour:
   - itemId: 0
     itemName: Spear
     itemDesc: "\uADFC\uC811 \uCC3D"
-    itemImg: {fileID: 21300000, guid: 37b6ba77ad325024387b68cfc6399b92, type: 3}
+    itemImg: {fileID: 6176583339189516475, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
     itemType: 0
     baseDamage: 1
     baseCount: 1
