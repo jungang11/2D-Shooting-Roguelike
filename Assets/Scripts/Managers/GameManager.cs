@@ -32,13 +32,6 @@ public class GameManager : MonoBehaviour
         InitManagers();
     }
 
-    private void Update()
-    {
-        gameTime += Time.deltaTime;
-        if(gameTime > maxGameTime)
-            gameTime = maxGameTime;
-    }
-
     private void OnDestroy()
     {
         if (instance == this)
