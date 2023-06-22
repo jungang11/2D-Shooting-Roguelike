@@ -30,7 +30,7 @@ public class CloseWeapon : Weapon
 
     public void SetSpear()
     {
-        speed = 120f;
+        speed = 200f;
         Place();
     }
 
@@ -44,7 +44,7 @@ public class CloseWeapon : Weapon
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             place.Rotate(rotVec);
-            place.Translate(place.up * 2f, Space.World);
+            place.Translate(place.up * 3f, Space.World);
             place.GetComponent<Spear>().Setting(damage, -1);
         }
     }

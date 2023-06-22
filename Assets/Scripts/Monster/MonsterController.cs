@@ -8,6 +8,8 @@ public class MonsterController : MonoBehaviour
 {
     [SerializeField] PlayerController player;
 
+    public HitDamage hitDamage;
+
     private float moveSpeed = 1f;            // 몬스터 이동속도
     
     private Rigidbody2D rb;
@@ -70,6 +72,7 @@ public class MonsterController : MonoBehaviour
     public void TakeHit(float damage)
     {
         anim.SetTrigger("TakeHit");
+        hitDamage.PrintDamage(damage);
 
         hp -= damage;
         if (hp < 0)
@@ -94,12 +97,18 @@ public class MonsterController : MonoBehaviour
         {
             TakeHit(collision.GetComponent<Fire>().FireDamage);
         }
-        else if (collision.CompareTag("Player"))
-        {
-            player.TakeHit(1f);
-        }
         else if (!isAlive)
             return;
+        else
+            return;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            target.GetComponent<PlayerController>().TakeHit(0.2f);
+        }
         else
             return;
     }

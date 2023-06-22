@@ -49,14 +49,14 @@ public class RangedWeapon : Weapon
     {
         float diff = 50f;
 
-        foreach (MonsterController monster in monsterList)
+        for (int i = 0; i < monsterList.Count; i++)
         {
-            float curDiff = Vector3.Distance(transform.position, monster.transform.position);
+            float curDiff = Vector3.Distance(transform.position, monsterList[i].transform.position);
 
             if (curDiff < diff)
             {
                 diff = curDiff;
-                nearMonster = monster;
+                nearMonster = monsterList[i];
                 return nearMonster;
             }
         }
