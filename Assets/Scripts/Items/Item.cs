@@ -24,7 +24,7 @@ public class Item : MonoBehaviour
 
     public void LevelUpText()
     {
-        levelText.text = ($"Lv {level++}");
+        levelText.text = $"Lv {level++}";
     }
 
     public void OnClick()

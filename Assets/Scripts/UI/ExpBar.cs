@@ -13,14 +13,23 @@ public class ExpBar : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        slider.maxValue = GameManager.Data.nextExp[GameManager.Data.level];
-        slider.value = GameManager.Data.exp;
+        StartCoroutine(SetValueRoutine());
     }
 
-    public void SetValue(float value)
+    private void OnDisable()
     {
-        slider.value = GameManager.Data.exp;
+        StopAllCoroutines();
+    }
+
+    private IEnumerator SetValueRoutine()
+    {
+        while (true)
+        {
+            float curExp = GameManager.Data.exp / GameManager.Data.nextExp[GameManager.Data.level];
+            slider.value = curExp;
+            yield return null;
+        }
     }
 }
