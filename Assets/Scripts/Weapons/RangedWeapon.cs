@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class RangedWeapon : Weapon
 {
-    [SerializeField] Fire firePrefab;     // ÃÑ¾Ë
+    [SerializeField] Fire[] firePrefabs;     // ÃÑ¾Ë
+
     private MonsterController nearMonster;
 
     protected override void Awake()
@@ -40,9 +41,12 @@ public class RangedWeapon : Weapon
 
     public void Fire(MonsterController enemy)
     {
-        Fire fire = GameManager.Pool.Get(firePrefab, transform.position, transform.rotation);
-        fire.SetTarget(enemy);
-        fire.SetDamage(1f);
+        for(int i =0;i<firePrefabs.Length;i++)
+        {
+            Fire fire = GameManager.Pool.Get(firePrefabs[i], transform.position, transform.rotation);
+            fire.SetTarget(enemy);
+            fire.SetDamage(1f);
+        }
     }
 
     public MonsterController NearMonster()

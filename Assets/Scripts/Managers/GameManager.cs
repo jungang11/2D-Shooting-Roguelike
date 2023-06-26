@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GameManager : MonoBehaviour
     private static PoolManager poolManager;
     private static ResourceManager resourceManager;
     private static DataManager dataManager;
+    private static UIManager uiManager;
+    private static SceneManager sceneManager;
 
     public static PlayerController playerController;
 
@@ -15,6 +18,8 @@ public class GameManager : MonoBehaviour
     public static PoolManager Pool { get { return poolManager; } }
     public static ResourceManager Resource { get { return resourceManager; } }
     public static DataManager Data { get { return dataManager; } }
+    public static UIManager UI { get { return uiManager; } }
+    public static SceneManager Scene { get { return sceneManager; } }
 
     public float gameTime = 0;
     public float maxGameTime = 300;
@@ -55,5 +60,15 @@ public class GameManager : MonoBehaviour
         dataObj.name = "DataManager";
         dataObj.transform.parent = transform;
         dataManager = dataObj.AddComponent<DataManager>();
+
+        GameObject uiObj = new GameObject();
+        uiObj.name = "UIManager";
+        uiObj.transform.parent = transform;
+        uiManager = uiObj.AddComponent<UIManager>();
+
+        GameObject sceneObj = new GameObject();
+        sceneObj.name = "SceneManager";
+        sceneObj.transform.parent = transform;
+        sceneManager = sceneObj.AddComponent<SceneManager>();
     }
 }
