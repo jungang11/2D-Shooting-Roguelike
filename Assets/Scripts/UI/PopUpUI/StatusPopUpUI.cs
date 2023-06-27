@@ -17,8 +17,8 @@ public class StatusPopUpUI : PopUpUI
     IEnumerator StatusRoutine()
     {
         texts["LevelText"].text = GameManager.Data.level.ToString();
-        // texts["DamageText"].text = GameManager.Data..ToString();
-        // texts["SpeedText"].text = GameManager.Data.level.ToString();
+        texts["DamageText"].text = GameManager.Data.playerData.attack.ToString();
+        texts["SpeedText"].text = GameManager.Data.playerData.movementSpeed.ToString();
         texts["KillsText"].text = GameManager.Data.kill.ToString();
         // texts["TimeText"].text = GameManager.Data.level.ToString();
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spear : CloseWeapon
+public class CloseFire : CloseWeapon
 {
     public float per;
 

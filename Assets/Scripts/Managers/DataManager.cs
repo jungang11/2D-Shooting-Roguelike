@@ -5,24 +5,36 @@ using UnityEngine.Events;
 
 public class DataManager : MonoBehaviour
 {
-    public int level = 0;
+    public PlayerData playerData;
+
+    public int level;
     public int kill;
     public float exp;
-    public float[] nextExp = { 5f, 10f, 20f, 30f, 40f, 50f, 60f, 70f, 80f, 90f, 100f };
+    public float nextExp;
+
+    private void Awake()
+    {
+        playerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
+    }
+
+    private void Start()
+    {
+        level = 1;
+        exp = 0;
+        kill = 0;
+        nextExp = 10f;
+    }
 
     public void GetExp()
     {
         exp++;
-        if(level > nextExp.Length)
-        {
-            return;
-        }
 
-        if (exp >= nextExp[level])
+        if (exp >= nextExp)
         {
-            // TODO : Levelup
             level++;
+            nextExp = level * 10f;
             exp = 0;
+            GameManager.UI.ShowPopUpUI<PopUpUI>("Prefab/UI/LevelUpUI");
         }
     }
 }

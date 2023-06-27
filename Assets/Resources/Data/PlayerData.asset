@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a976907d45ef63459ea263830c59d83, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  hp: 30
+  hpRecovery: 2
+  armor: 1
+  movementSpeed: 5
+  attack: 3
+  criticalRate: 1
+  criticalMultiplier: 2
+  area: 0
+  projectileSpeed: 5
+  duration: 1
+  cooldown: 1
+  magnet: 2
+  luck: 1
+  expMultiplier: 0
+  goldMultiplier: 0
+  statsIncreasePerLevel:
+    hp: 1
+    hpRecovery: 1
+    armor: 1
+    attack: 1

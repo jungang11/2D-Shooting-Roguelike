@@ -256,7 +256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0634603dc98072c499ca688a080c65bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefab: {fileID: -8610424659711316348, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
+  firePrefabs:
+  - {fileID: -8610424659711316348, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
+  - {fileID: 7224653544178418731, guid: 8e508495d4444964ab068bc06055a3cc, type: 3}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,9 +304,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.5
-  count: 12
+  count: 2
   speed: 3
-  closeWeaponPrefab: {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
+  closeWeaponPrefabs:
+  - {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
+  - {fileID: 4224874155716043397, guid: 89e002d86fc07b64089e764e7d5133b9, type: 3}
   place: {fileID: 959229859296903099}
 --- !u!1 &1951175191250887372
 GameObject:
@@ -603,7 +607,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
-  moveSpeed: 5
   OnChangedHP:
     m_PersistentCalls:
       m_Calls: []
@@ -613,6 +616,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
+  moveSpeed: 5
 --- !u!1 &3971166025316277711
 GameObject:
   m_ObjectHideFlags: 0

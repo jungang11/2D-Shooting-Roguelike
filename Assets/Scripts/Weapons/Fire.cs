@@ -42,6 +42,7 @@ public class Fire : MonoBehaviour
                 transform.rotation = Quaternion.FromToRotation(Vector3.up, dirVec.normalized);
                 rb.velocity = dirVec.normalized * speed;
                 // rb.MovePosition(rb.position + dirVec.normalized * speed * Time.fixedDeltaTime);
+                
 
                 if (Vector2.Distance(targetPoint, transform.position) < 0.2f)
                 {
@@ -52,7 +53,7 @@ public class Fire : MonoBehaviour
                     yield break;
                 }
 
-                yield return null;
+                yield return new WaitForSeconds(0.5f);
             }
         }
     }

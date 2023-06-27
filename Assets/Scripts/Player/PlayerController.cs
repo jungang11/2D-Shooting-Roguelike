@@ -7,7 +7,6 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float hp;
-    [SerializeField] private float moveSpeed; // 플레이어 이동속도
 
     private Rigidbody2D rb;         // RigidBody2D
     private Animator anim;          // Animator
@@ -22,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public UnityEvent<float> OnChangedHP;
     public UnityEvent<float> OnChangedEXP;
     public UnityEvent OnDied;
+
+    public float moveSpeed;
 
     private void Awake()
     {

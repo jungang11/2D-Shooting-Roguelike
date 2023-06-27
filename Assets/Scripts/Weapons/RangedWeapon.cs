@@ -16,6 +16,8 @@ public class RangedWeapon : Weapon
     private void OnEnable()
     {
         StartCoroutine(AttackRoutine());
+        firePrefabs[0] = GameManager.Resource.Load<Fire>("Prefab/Weapon/Fire");
+        firePrefabs[1] = GameManager.Resource.Load<Fire>("Prefab/Weapon/Electricity");
     }
 
     private void OnDisable()
@@ -41,7 +43,7 @@ public class RangedWeapon : Weapon
 
     public void Fire(MonsterController enemy)
     {
-        for(int i =0;i<firePrefabs.Length;i++)
+        for(int i = 0; i < firePrefabs.Length; i++)
         {
             Fire fire = GameManager.Pool.Get(firePrefabs[i], transform.position, transform.rotation);
             fire.SetTarget(enemy);

@@ -4,6 +4,7 @@ using System.Xml.Linq;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class UIManager : MonoBehaviour
 
     private Canvas popUpCanvas;
     private Stack<PopUpUI> popUpStack;
+    public Stack<PopUpUI> popUp_Stack { get { return popUpStack; } }
 
-    private void OnEnable()
+    private void Awake()
     {
         // 씬 실행시 Resource/UI 폴더의 EventSystem 프리팹을 생성
         eventSystem = GameManager.Resource.Instantiate<EventSystem>("Prefab/UI/EventSystem");

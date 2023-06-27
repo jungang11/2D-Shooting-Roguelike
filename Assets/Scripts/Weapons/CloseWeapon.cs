@@ -8,7 +8,7 @@ public class CloseWeapon : Weapon
     public float damage;                        // 데미지
     public int count;                           // 배치 무기 갯수
     public float speed;                         // 속도
-    public CloseWeapon closeWeaponPrefab;       // 배치될 프리팹
+    public CloseWeapon[] closeWeaponPrefabs;    // 배치될 프리팹
     public Transform place;                     // 배치될 위치
     private int index;
 
@@ -36,15 +36,28 @@ public class CloseWeapon : Weapon
     // 캐릭터 주위 무기 배치
     public void Place()
     {
+        // Sword
         for (int i = 0; i < count; i++)
         {
-            place = GameManager.Pool.Get(closeWeaponPrefab).transform;
+            place = GameManager.Pool.Get(closeWeaponPrefabs[0]).transform;
             place.SetParent(transform);
 
             Vector3 rotVec = Vector3.forward * 360 * i / count;
             place.Rotate(rotVec);
             place.Translate(place.up * 3f, Space.World);
-            place.GetComponent<Spear>().Setting(damage, -1);
+            place.GetComponent<NormalSword>().Setting(damage, -1);
+        }
+
+        // CloseFire
+        for (int i = 0; i < count; i++)
+        {
+            place = GameManager.Pool.Get(closeWeaponPrefabs[1]).transform;
+            place.SetParent(transform);
+
+            Vector3 rotVec = Vector3.forward * 180 * i / count;
+            place.Rotate(rotVec);
+            place.Translate(place.up * 7.5f, Space.World);
+            place.GetComponent<NormalSword>().Setting(damage, -1);
         }
     }
 }
