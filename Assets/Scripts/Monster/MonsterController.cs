@@ -87,20 +87,22 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("CloseWeapon"))
+        if (collision.CompareTag("Fire"))
+        {
+            TakeHit(collision.GetComponent<Fire>().damage);
+            GameManager.Resource.Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("Electricity"))
+        {
+            TakeHit(collision.GetComponent<Electricity>().damage);
+            GameManager.Resource.Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.CompareTag("CloseWeapon"))
         {
             TakeHit(collision.GetComponent<CloseWeapon>().damage);
         }
-        else if (collision.CompareTag("Fire"))
-        {
-            TakeHit(collision.GetComponent<Fire>().FireDamage);
-        }
-        else if (!isAlive)
-            return;
-        else
-            return;
     }
 
     private void OnCollisionStay2D(Collision2D collision)

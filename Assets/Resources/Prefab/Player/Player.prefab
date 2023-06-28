@@ -27,9 +27,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1646984977}
-  - {fileID: 959229859296903099}
+  m_Children: []
   m_Father: {fileID: 2191940861471866695}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165,7 +163,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 10
 --- !u!114 &792241503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,8 +239,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 792241501}
-  m_Father: {fileID: 313829904}
-  m_RootOrder: 0
+  m_Father: {fileID: 2191940861471866695}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1646984978
 MonoBehaviour:
@@ -256,9 +254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0634603dc98072c499ca688a080c65bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firePrefabs:
-  - {fileID: -8610424659711316348, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
-  - {fileID: 7224653544178418731, guid: 8e508495d4444964ab068bc06055a3cc, type: 3}
+  player: {fileID: 2191940861471866692}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,8 +284,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 313829904}
-  m_RootOrder: 1
+  m_Father: {fileID: 2191940861471866695}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2191940862584312356
 MonoBehaviour:
@@ -304,11 +300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0.5
-  count: 2
+  count: 1
   speed: 3
   closeWeaponPrefabs:
   - {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
-  - {fileID: 4224874155716043397, guid: 89e002d86fc07b64089e764e7d5133b9, type: 3}
   place: {fileID: 959229859296903099}
 --- !u!1 &1951175191250887372
 GameObject:
@@ -429,6 +424,7 @@ GameObject:
   - component: {fileID: 2191940861471866693}
   - component: {fileID: 2191940861471866698}
   - component: {fileID: 2191940861471866692}
+  - component: {fileID: 3115905417959318683}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -451,6 +447,8 @@ Transform:
   - {fileID: 6866928538857004076}
   - {fileID: 668409722}
   - {fileID: 313829904}
+  - {fileID: 1646984977}
+  - {fileID: 959229859296903099}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -607,6 +605,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
+  scanner: {fileID: 0}
+  nearest: {fileID: 0}
   OnChangedHP:
     m_PersistentCalls:
       m_Calls: []
@@ -617,6 +617,23 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   moveSpeed: 5
+--- !u!114 &3115905417959318683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191940861471866691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4aa4f2572ee294e8ec7d25155da926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 64
+  range: 7
+  nearestEnemy: {fileID: 0}
 --- !u!1 &3971166025316277711
 GameObject:
   m_ObjectHideFlags: 0

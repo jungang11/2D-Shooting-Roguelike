@@ -11,15 +11,13 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;         // RigidBody2D
     private Animator anim;          // Animator
     private SpriteRenderer render;  // 캐릭터 flip 변경
-    private float exp;
+    public MonsterScan scanner;     // 몬스터 스캔
 
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
 
     public float HP { get { return hp; } private set { hp = value; OnChangedHP?.Invoke(hp); } }
-    public float EXP { get { return exp; } private set { exp = value; OnChangedEXP?.Invoke(exp); } }
 
     public UnityEvent<float> OnChangedHP;
-    public UnityEvent<float> OnChangedEXP;
     public UnityEvent OnDied;
 
     public float moveSpeed;
@@ -29,7 +27,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
-        exp = GameManager.Data.exp;
+        scanner = GetComponent<MonsterScan>();
     }
 
     private void FixedUpdate()
@@ -65,6 +63,7 @@ public class PlayerController : MonoBehaviour
         {
             OnDied?.Invoke();
             GameManager.Resource.Destroy(gameObject);
+            Time.timeScale = 0f;
         }
     }
 }

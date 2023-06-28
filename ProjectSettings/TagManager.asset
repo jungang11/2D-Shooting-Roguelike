@@ -8,6 +8,9 @@ TagManager:
   - Weapon
   - CloseWeapon
   - Fire
+  - Wall
+  - RangedWeapon
+  - Electricity
   layers:
   - Default
   - TransparentFX

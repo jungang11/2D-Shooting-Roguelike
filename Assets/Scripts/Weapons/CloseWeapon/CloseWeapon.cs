@@ -47,17 +47,5 @@ public class CloseWeapon : Weapon
             place.Translate(place.up * 3f, Space.World);
             place.GetComponent<NormalSword>().Setting(damage, -1);
         }
-
-        // CloseFire
-        for (int i = 0; i < count; i++)
-        {
-            place = GameManager.Pool.Get(closeWeaponPrefabs[1]).transform;
-            place.SetParent(transform);
-
-            Vector3 rotVec = Vector3.forward * 180 * i / count;
-            place.Rotate(rotVec);
-            place.Translate(place.up * 7.5f, Space.World);
-            place.GetComponent<NormalSword>().Setting(damage, -1);
-        }
     }
 }

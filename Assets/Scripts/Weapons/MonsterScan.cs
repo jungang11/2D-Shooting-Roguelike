@@ -9,14 +9,15 @@ public class MonsterScan : MonoBehaviour
     public RaycastHit2D[] enemies;  // 레이캐스트가 닿은 몬스터들 
     public Transform nearestEnemy;  // 가장 가까운 enemy Transform
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         enemies = Physics2D.CircleCastAll(transform.position, range, Vector2.zero, 0, enemyMask);
+        nearestEnemy = GetNearest();
     }
 
     public Transform GetNearest()
     {
-        Transform result = null;
+        Transform result;
         float diff = 100f;
         for (int i = 0; i < enemies.Length; i++)
         {

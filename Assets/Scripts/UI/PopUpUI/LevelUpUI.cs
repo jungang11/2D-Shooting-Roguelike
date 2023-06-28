@@ -97,12 +97,10 @@ public class LevelUpUI : PopUpUI
             if (showItem.level == showItem.data.Items[0].damages.Length)
             {
                 items[6].gameObject.SetActive(true);
-                // buttons["Item7_Button"].onClick.AddListener(() => { ChoiceItem(6); });
             }
             else
             {
                 showItem.gameObject.SetActive(true);
-                // buttons[$"Item{ranNum[i] + 1}_Button"].onClick.AddListener(() => { ChoiceItem(ranNum[i]); });
             }
         }
         yield return null;
