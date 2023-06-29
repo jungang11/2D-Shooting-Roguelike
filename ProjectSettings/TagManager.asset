@@ -11,6 +11,8 @@ TagManager:
   - Wall
   - RangedWeapon
   - Electricity
+  - Explosion
+  - Bullet
   layers:
   - Default
   - TransparentFX

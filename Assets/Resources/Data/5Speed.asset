@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5Speed
   m_EditorClassIdentifier: 
   items:
-  - itemId: 4
+  - itemId: 5
     itemName: "\uC774\uB3D9\uC18D\uB3C4"
     itemDesc: "\uC774\uB3D9\uC18D\uB3C4"
     itemImg: {fileID: 21300000, guid: 443967e98c2b54ebaa7d13993dd6025f, type: 3}
@@ -26,4 +26,7 @@ MonoBehaviour:
     - 1
     - 1
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 0}
+    rarity: 0
+    maxAmount: 0
+    isAttachedPlayer: 0
+    levelData: []

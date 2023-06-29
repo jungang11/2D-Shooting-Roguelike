@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,11 @@ public class DataManager : MonoBehaviour
     }
 
     private void Start()
+    {
+        Init();
+    }
+
+    private void Init()
     {
         level = 1;
         exp = 0;

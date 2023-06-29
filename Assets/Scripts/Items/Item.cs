@@ -51,28 +51,4 @@ public class Item : MonoBehaviour
                 break;
         }
     }
-
-    /*public void OnClick()
-    {
-        switch (data.Items[0].itemType)
-        {
-            case ItemData.ItemType.CloseWeapon:
-                
-                break;
-            case ItemData.ItemType.RangedWeapon:
-                if (level == 0)
-                {
-                    GameObject newWeapon = new GameObject();
-                    newWeapon.AddComponent<RangedWeapon>();
-                }
-                break;
-            case ItemData.ItemType.Passive:
-
-                break;
-            case ItemData.ItemType.Heal:
-
-                break;
-        }
-        level++;
-    }*/
 }

@@ -1,37 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fire : MonoBehaviour
 {
+    private CapsuleCollider2D col;
     public float damage;
-    public float speed;
-
-    private Rigidbody2D rb;
-    private Vector3 dirVec;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CapsuleCollider2D>();
     }
 
-    // 발사 목표 지점, 데미지, 스피드 설정
-    public void Init(Vector3 dirVec)
+    public void Init()
     {
-        StartCoroutine(FireRoutine(dirVec));
+        StartCoroutine(FireRoutine());
     }
 
-    IEnumerator FireRoutine(Vector3 dirVec)
+    private void OnDisable()
     {
-        while (true)
-        {
-            transform.rotation = Quaternion.FromToRotation(Vector3.up, dirVec);
-            rb.velocity = dirVec * speed;
+        StopAllCoroutines();
+    }
 
-            yield return new WaitForSeconds(2f);
-            GameManager.Resource.Destroy(gameObject);
+    IEnumerator FireRoutine()
+    {
+        yield return new WaitForSeconds(2f);
 
-            yield return null;
-        }
+        GameManager.Resource.Destroy(gameObject);
+
+        yield return null;
     }
 }

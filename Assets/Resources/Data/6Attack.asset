@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 6Attack
   m_EditorClassIdentifier: 
   items:
-  - itemId: 5
+  - itemId: 6
     itemName: "\uB370\uBBF8\uC9C0"
     itemDesc: "\uB370\uBBF8\uC9C0"
     itemImg: {fileID: 21300000, guid: f9a70ad97a4ed4e4bac2d1b878559fc7, type: 3}
@@ -26,4 +26,7 @@ MonoBehaviour:
     - 1
     - 1
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 0}
+    rarity: 0
+    maxAmount: 0
+    isAttachedPlayer: 0
+    levelData: []

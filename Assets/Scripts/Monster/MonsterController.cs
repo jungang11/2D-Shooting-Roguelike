@@ -33,6 +33,11 @@ public class MonsterController : MonoBehaviour
         target = GameObject.Find("Player").GetComponent<Rigidbody2D>();
     }
 
+    private void OnEnable()
+    {
+        Init();
+    }
+
     public void Init()
     {
         isAlive = true;
@@ -60,6 +65,7 @@ public class MonsterController : MonoBehaviour
         Vector2 dirVec = target.position - rb.position;
         rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
     }
+
 
     IEnumerator TakeHitRoutine()
     {
@@ -89,15 +95,27 @@ public class MonsterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Fire"))
+        if (collision.CompareTag("Bullet"))
         {
-            TakeHit(collision.GetComponent<Fire>().damage);
+            TakeHit(collision.GetComponent<Bullet>().damage);
             GameManager.Resource.Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Electricity"))
         {
             TakeHit(collision.GetComponent<Electricity>().damage);
             GameManager.Resource.Destroy(collision.gameObject);
+        }
+        if (collision.CompareTag("Explosion"))
+        {
+            TakeHit(collision.GetComponent<Explosion>().damage);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fire"))
+        {
+            TakeHit(collision.GetComponent<Fire>().damage);
         }
         if (collision.gameObject.CompareTag("CloseWeapon"))
         {
@@ -117,6 +135,7 @@ public class MonsterController : MonoBehaviour
 
     public void Die()
     {
+        anim.SetTrigger("Die");
         isAlive = false;
         gameObject.SetActive(false);
     }

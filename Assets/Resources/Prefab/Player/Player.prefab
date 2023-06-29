@@ -254,6 +254,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0634603dc98072c499ca688a080c65bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeaponStats:
+    defaultDamage: 0
+    characterDamageMultiplier: 0
+    damage: 0
+    cooldown: 0
+    duration: 0
+    interval: 0
+    amount: 0
+    knockbackPower: 0
+    size: 0
+    speed: 0
+    pierce: 0
   player: {fileID: 2191940861471866692}
 --- !u!1 &146632778554159077
 GameObject:
@@ -299,6 +311,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentWeaponStats:
+    defaultDamage: 0
+    characterDamageMultiplier: 0
+    damage: 0
+    cooldown: 0
+    duration: 0
+    interval: 0
+    amount: 0
+    knockbackPower: 0
+    size: 0
+    speed: 0
+    pierce: 0
   damage: 0.5
   count: 1
   speed: 3
@@ -606,11 +630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 20
   scanner: {fileID: 0}
-  nearest: {fileID: 0}
   OnChangedHP:
-    m_PersistentCalls:
-      m_Calls: []
-  OnChangedEXP:
     m_PersistentCalls:
       m_Calls: []
   OnDied:
@@ -632,7 +652,7 @@ MonoBehaviour:
   enemyMask:
     serializedVersion: 2
     m_Bits: 64
-  range: 7
+  range: 8
   nearestEnemy: {fileID: 0}
 --- !u!1 &3971166025316277711
 GameObject:

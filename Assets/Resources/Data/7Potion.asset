@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 7Potion
   m_EditorClassIdentifier: 
   items:
-  - itemId: 6
+  - itemId: 7
     itemName: "\uCCB4\uB825\uD68C\uBCF5"
     itemDesc: "\uCCB4\uB825\uD68C\uBCF5"
     itemImg: {fileID: 21300000, guid: 251d36e4fe6e04ccd8b548993db354ea, type: 3}
@@ -26,4 +26,7 @@ MonoBehaviour:
     - 1
     - 1
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 0}
+    rarity: 0
+    maxAmount: 0
+    isAttachedPlayer: 0
+    levelData: []

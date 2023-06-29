@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4273dbc213303c74091692fdd6a60c30, type: 3}
-  m_Name: 2Fire
+  m_Name: 2Bullet
   m_EditorClassIdentifier: 
   items:
-  - itemId: 1
+  - itemId: 2
     itemName: "\uCD1D\uC54C"
     itemDesc: "\uC5F0\uC0AC\uC18D\uB3C4 \uBE60\uB978 \uCD1D\uC54C"
     itemImg: {fileID: 21300000, guid: 7162341b8ba289c488ff1aabd114f55b, type: 3}
@@ -26,4 +26,7 @@ MonoBehaviour:
     - 2
     - 2.5
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 8620608119955232922, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
+    rarity: 0
+    maxAmount: 0
+    isAttachedPlayer: 0
+    levelData: []

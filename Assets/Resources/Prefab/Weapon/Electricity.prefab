@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8320429602059943}
   - component: {fileID: 8400582014902519434}
   - component: {fileID: -3240931202958082393}
+  - component: {fileID: 662771855}
   m_Layer: 0
   m_Name: Electricity
   m_TagString: Electricity
@@ -148,3 +149,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 7
   speed: 10
+--- !u!95 &662771855
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8874566997427864399}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf51782a9d542924eb204c70bebe3623, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

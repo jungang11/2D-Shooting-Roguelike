@@ -30,7 +30,7 @@ public class LevelUpUI : PopUpUI
         items = GetComponentsInChildren<Item>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(ShowItemsRoutine());
     }
@@ -50,6 +50,7 @@ public class LevelUpUI : PopUpUI
             case 0: // 기본 검
                 items[index].level++;
                 Debug.Log("검 강화");
+                // TODO : 검 강화
                 break;
             case 1: // 총알
                 items[index].level++;
@@ -91,9 +92,9 @@ public class LevelUpUI : PopUpUI
         // 2. 비활성화된 아이템들 중 랜덤한 3개 아이템 활성화
         while (true)
         {
-            ranNum[0] = Random.Range(0, items.Length);
-            ranNum[1] = Random.Range(0, items.Length);
-            ranNum[2] = Random.Range(0, items.Length);
+            ranNum[0] = Random.Range(0, items.Length-1);
+            ranNum[1] = Random.Range(0, items.Length-1);
+            ranNum[2] = Random.Range(0, items.Length-1);
             Debug.Log($"{ranNum[0]} {ranNum[1]} {ranNum[2]}");
 
             // 중복 제거

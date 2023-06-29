@@ -26,4 +26,18 @@ MonoBehaviour:
     - 2
     - 2.5
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 8620608119955232922, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
+    rarity: 0
+    maxAmount: 0
+    isAttachedPlayer: 0
+    levelData:
+    - defaultDamage: 0
+      characterDamageMultiplier: 0
+      damage: 0
+      cooldown: 0
+      duration: 0
+      interval: 0
+      amount: 0
+      knockbackPower: 0
+      size: 0
+      speed: 0
+      pierce: 0

@@ -161,7 +161,7 @@ public class PoolManager : MonoBehaviour
         poolDic.Add(key, pool);
     }
 
-    // 162~ UI 전용 Pool Script
+    // 162~ UI 전용 Pool Script -----------------------------------------
     public T GetUI<T>(T original, Vector3 position) where T : Object
     {
         if (original is GameObject)
