@@ -66,16 +66,16 @@ public class LevelUpUI : PopUpUI
                 break;
             case 4: // 이동속도
                 items[index].level++;
-                GameManager.Data.playerData.movementSpeed += 1f;
+                GameManager.Data.currentPlayerData.movementSpeed += 1f;
                 Debug.Log("이동속도 증가");
                 break;
             case 5: // 공격력
                 items[index].level++;
-                GameManager.Data.playerData.attack += 1f;
+                GameManager.Data.currentPlayerData.attack += 1f;
                 Debug.Log("공격력 증가");
                 break;
             case 6: // 회복 아이템 (만렙)
-                GameManager.Data.playerData.hp += 1f;
+                GameManager.Data.currentPlayerData.hp += 1f;
                 Debug.Log("회복");
                 break;
         }
@@ -92,9 +92,9 @@ public class LevelUpUI : PopUpUI
         // 2. 비활성화된 아이템들 중 랜덤한 3개 아이템 활성화
         while (true)
         {
-            ranNum[0] = Random.Range(0, items.Length-1);
-            ranNum[1] = Random.Range(0, items.Length-1);
-            ranNum[2] = Random.Range(0, items.Length-1);
+            ranNum[0] = Random.Range(0, items.Length);
+            ranNum[1] = Random.Range(0, items.Length);
+            ranNum[2] = Random.Range(0, items.Length);
             Debug.Log($"{ranNum[0]} {ranNum[1]} {ranNum[2]}");
 
             // 중복 제거

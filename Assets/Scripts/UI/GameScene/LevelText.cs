@@ -21,7 +21,7 @@ public class LevelText : MonoBehaviour
     {
         while (true)
         {
-            int curlevel = GameManager.Data.level;
+            int curlevel = GameManager.Data.currentPlayerData.level;
 
             levelText.text = $"Level : {curlevel}";
 

@@ -21,7 +21,7 @@ public class KillCount : MonoBehaviour
     {
         while (true)
         {
-            int kill = GameManager.Data.kill;
+            int kill = GameManager.Data.currentPlayerData.kill;
 
             killCountText.text = $"{kill}";
 

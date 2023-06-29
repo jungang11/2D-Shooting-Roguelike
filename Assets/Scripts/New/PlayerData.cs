@@ -1,11 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PlayerData", menuName = "Data/Player")]
 public class PlayerData : ScriptableObject
 {
+    public int   level;
+    public int   kill;
+    public float exp;
+    public float nextExp;
+
     public float hp;
     public float hpRecovery;
     public float armor;
@@ -36,4 +42,9 @@ public class PlayerData : ScriptableObject
         public float armor;
         public float attack;
     }
+}
+
+public class PlayerStats
+{
+
 }

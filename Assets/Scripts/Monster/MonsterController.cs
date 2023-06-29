@@ -84,7 +84,7 @@ public class MonsterController : MonoBehaviour
         if (hp < 0)
         {
             Die();
-            GameManager.Data.kill++;
+            GameManager.Data.currentPlayerData.kill++;
             GameManager.Data.GetExp();
         }
         else

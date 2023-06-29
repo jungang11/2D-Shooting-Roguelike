@@ -22,12 +22,19 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
 
+    public PlayerData playerData;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
         scanner = GetComponent<MonsterScan>();
+    }
+
+    private void Start()
+    {
+        moveSpeed = GameManager.Data.currentPlayerData.movementSpeed;
     }
 
     private void FixedUpdate()

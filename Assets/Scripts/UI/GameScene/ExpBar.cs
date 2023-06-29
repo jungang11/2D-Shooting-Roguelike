@@ -27,7 +27,7 @@ public class ExpBar : MonoBehaviour
     {
         while (true)
         {
-            float curExp = GameManager.Data.exp / GameManager.Data.nextExp;
+            float curExp = GameManager.Data.currentPlayerData.exp / GameManager.Data.currentPlayerData.nextExp;
             slider.value = curExp;
             yield return null;
         }

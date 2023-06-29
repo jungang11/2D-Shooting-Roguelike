@@ -16,10 +16,10 @@ public class StatusPopUpUI : PopUpUI
 
     IEnumerator StatusRoutine()
     {
-        texts["LevelText"].text = GameManager.Data.level.ToString();
-        texts["DamageText"].text = GameManager.Data.playerData.attack.ToString();
-        texts["SpeedText"].text = GameManager.Data.playerData.movementSpeed.ToString();
-        texts["KillsText"].text = GameManager.Data.kill.ToString();
+        texts["LevelText"].text = GameManager.Data.currentPlayerData.level.ToString();
+        texts["DamageText"].text = GameManager.Data.currentPlayerData.attack.ToString();
+        texts["SpeedText"].text = GameManager.Data.currentPlayerData.movementSpeed.ToString();
+        texts["KillsText"].text = GameManager.Data.currentPlayerData.kill.ToString();
         // texts["TimeText"].text = GameManager.Data.level.ToString();
 
         yield return null;
