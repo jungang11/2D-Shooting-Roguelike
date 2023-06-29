@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponData", menuName = "Data/Item")]
+[CreateAssetMenu(fileName = "WeaponData", menuName = "Data/Item", order = 0)]
 public class WeaponData : ScriptableObject
 {
     public int rarity;

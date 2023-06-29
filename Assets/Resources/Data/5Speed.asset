@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4273dbc213303c74091692fdd6a60c30, type: 3}
-  m_Name: Item 1
+  m_Name: 5Speed
   m_EditorClassIdentifier: 
   items:
-  - itemId: 1
-    itemName: "\uCD1D\uC54C"
-    itemDesc: "\uC5F0\uC0AC\uC18D\uB3C4 \uBE60\uB978 \uCD1D\uC54C"
-    itemImg: {fileID: -537537479, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-    itemType: 1
+  - itemId: 4
+    itemName: "\uC774\uB3D9\uC18D\uB3C4"
+    itemDesc: "\uC774\uB3D9\uC18D\uB3C4"
+    itemImg: {fileID: 21300000, guid: 443967e98c2b54ebaa7d13993dd6025f, type: 3}
+    itemType: 2
     baseDamage: 1
     baseCount: 1
     damages:
     - 1
-    - 1.5
-    - 2
-    - 2.5
+    - 1
+    - 1
+    - 1
     counts: 01000000010000000100000001000000
-    weapon: {fileID: 8620608119955232922, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
+    weapon: {fileID: 0}

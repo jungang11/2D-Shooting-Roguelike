@@ -40,21 +40,27 @@ public class Item : MonoBehaviour
             case ItemData.ItemType.RangedWeapon:
                 textDesc.text = $"{data.Items[0].itemDesc}, 데미지 {data.Items[0].damages[level] * 10f}% 증가";
                 break;
+            case ItemData.ItemType.Passive:
+                textDesc.text = $"{data.Items[0].itemDesc}, 능력치 {data.Items[0].damages[level] * 10f}% 증가";
+                break;
+            case ItemData.ItemType.Heal:
+                textDesc.text = $"{data.Items[0].itemDesc}, 체력 {data.Items[0].damages[level] } 증가";
+                break;
             default:
                 textDesc.text = $"{data.Items[0].itemDesc}";
                 break;
         }
     }
 
-    public void OnClick()
+    /*public void OnClick()
     {
         switch (data.Items[0].itemType)
         {
             case ItemData.ItemType.CloseWeapon:
-                data.Items[0].baseCount++;
+                
                 break;
             case ItemData.ItemType.RangedWeapon:
-                if(level == 0)
+                if (level == 0)
                 {
                     GameObject newWeapon = new GameObject();
                     newWeapon.AddComponent<RangedWeapon>();
@@ -68,10 +74,5 @@ public class Item : MonoBehaviour
                 break;
         }
         level++;
-
-        if(level == data.Items[0].damages.Length)
-        {
-            GetComponent<Button>().interactable = false;
-        }
-    }
+    }*/
 }

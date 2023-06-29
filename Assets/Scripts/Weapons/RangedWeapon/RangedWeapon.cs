@@ -42,20 +42,22 @@ public class RangedWeapon : Weapon
     {
         // 가장 가까운 적의 위치 구하기
         Vector3 targetPoint = player.scanner.nearestEnemy.position;
+        Vector3 dirVec = (targetPoint - transform.position).normalized;
 
         // 발사체 생성 및 초기화
         Fire fire = GameManager.Resource.Instantiate<Fire>("Prefab/Weapon/Fire", transform.position, transform.rotation);
-        fire.Init(targetPoint);
+        fire.Init(dirVec);
     }
 
     private void Electricity()
     {
         // 가장 가까운 적의 위치 구하기
         Vector3 targetPoint = player.scanner.nearestEnemy.position;
+        Vector3 dirVec = (targetPoint - transform.position).normalized;
 
         // 발사체 생성 및 초기화
         Electricity elec = GameManager.Resource.Instantiate<Electricity>("Prefab/Weapon/Electricity", transform.position, transform.rotation);
-        elec.Init(targetPoint);
+        elec.Init(dirVec);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

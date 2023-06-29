@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.InputSystem.Android;
 using UnityEngine.UI;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class LevelUpUI : PopUpUI
 {
@@ -39,6 +40,7 @@ public class LevelUpUI : PopUpUI
         StopAllCoroutines();
     }
 
+    // 아이템 버튼마다 index에 따라 다르게 호출
     public void ChoiceItem(int index)
     {
         GameManager.UI.ClosePopUpUI();
@@ -46,25 +48,34 @@ public class LevelUpUI : PopUpUI
         switch (index)
         {
             case 0: // 기본 검
-                GameManager.Data.playerData.movementSpeed += 1f;
+                items[index].level++;
+                Debug.Log("검 강화");
                 break;
             case 1: // 총알
-                GameManager.Data.playerData.attack += 1f;
+                items[index].level++;
+                Debug.Log("총알 강화");
                 break;
             case 2: // 전기
-                GameManager.Data.playerData.criticalRate += 1f;
+                items[index].level++;
+                Debug.Log("전기 강화");
                 break;
             case 3: // 방어력
-                GameManager.Data.playerData.armor += 1f;
+                items[index].level++;
+                Debug.Log("방어력 증가");
                 break;
             case 4: // 이동속도
+                items[index].level++;
                 GameManager.Data.playerData.movementSpeed += 1f;
+                Debug.Log("이동속도 증가");
                 break;
             case 5: // 공격력
+                items[index].level++;
                 GameManager.Data.playerData.attack += 1f;
+                Debug.Log("공격력 증가");
                 break;
             case 6: // 회복 아이템 (만렙)
                 GameManager.Data.playerData.hp += 1f;
+                Debug.Log("회복");
                 break;
         }
     }
@@ -80,9 +91,10 @@ public class LevelUpUI : PopUpUI
         // 2. 비활성화된 아이템들 중 랜덤한 3개 아이템 활성화
         while (true)
         {
-            ranNum[0] = Random.Range(0, items.Length-1);
-            ranNum[1] = Random.Range(0, items.Length-1);
-            ranNum[2] = Random.Range(0, items.Length-1);
+            ranNum[0] = Random.Range(0, items.Length);
+            ranNum[1] = Random.Range(0, items.Length);
+            ranNum[2] = Random.Range(0, items.Length);
+            Debug.Log($"{ranNum[0]} {ranNum[1]} {ranNum[2]}");
 
             // 중복 제거
             if (ranNum[0] != ranNum[1] && ranNum[0] != ranNum[2] && ranNum[1] != ranNum[2])
