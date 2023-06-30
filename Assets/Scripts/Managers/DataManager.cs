@@ -7,12 +7,10 @@ using UnityEngine.Events;
 public class DataManager : MonoBehaviour
 {
     public PlayerData currentPlayerData;
-    public PlayerController playerController;
 
     private void Awake()
     {
-        currentPlayerData = GameManager.Resource.Instantiate<PlayerData>("Data/PlayerData");
-
+        currentPlayerData = GameManager.Resource.Instantiate<PlayerData>("Data/PlayerData", transform);
     }
 
     public void GetExp()

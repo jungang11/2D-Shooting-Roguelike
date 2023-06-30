@@ -25,18 +25,14 @@ public class ItemData : ScriptableObject
         public float[] damages;
         public int[] counts;
 
-        public int rarity;
-        public int maxAmount;
-        public bool isAttachedPlayer;
-        public WeaponStats[] levelData;
+        public WeaponStats[] weaponLevelData;
     }
 }
 
 [Serializable]
 public class WeaponStats
 {
-    public int damage;
-
+    public int damage;              // 공격력
     public int cooldown;            // 쿨타임
     public float interval;          // 공격 간 딜레이
 

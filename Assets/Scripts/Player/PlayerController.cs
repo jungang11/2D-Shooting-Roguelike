@@ -30,11 +30,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         render = GetComponent<SpriteRenderer>();
         scanner = GetComponent<MonsterScan>();
-    }
-
-    private void Start()
-    {
-        moveSpeed = GameManager.Data.currentPlayerData.movementSpeed;
+        playerData = GameManager.Data.currentPlayerData;
     }
 
     private void FixedUpdate()
@@ -47,7 +43,7 @@ public class PlayerController : MonoBehaviour
         // transform.position 보다 Moveposition이 더 부드럽게 움직임(Rigidbody의 Interpolate 옵션 때문)
         // transform.position 으로 이동하는 경우 모든 Collider들이 Rigidbody의 위치를 재계산
         // inputDir을 normalized 하지 않을 경우 대각선 이동이 더 빠르며 이동속도가 비정상적
-        rb.MovePosition(rb.position + moveSpeed * Time.fixedDeltaTime * inputDir.normalized);
+        rb.MovePosition(rb.position + playerData.movementSpeed * Time.fixedDeltaTime * inputDir.normalized);
     }
 
     private void OnMove(InputValue value)

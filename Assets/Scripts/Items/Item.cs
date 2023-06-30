@@ -44,7 +44,7 @@ public class Item : MonoBehaviour
                 textDesc.text = $"{data.Items[0].itemDesc}, 능력치 {data.Items[0].damages[level] * 10f}% 증가";
                 break;
             case ItemData.ItemType.Heal:
-                textDesc.text = $"{data.Items[0].itemDesc}, 체력 {data.Items[0].damages[level] } 증가";
+                textDesc.text = $"{data.Items[0].itemDesc}, 체력 {data.Items[0].damages[level] } 회복";
                 break;
             default:
                 textDesc.text = $"{data.Items[0].itemDesc}";

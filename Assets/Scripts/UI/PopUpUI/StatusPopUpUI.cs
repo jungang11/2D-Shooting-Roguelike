@@ -16,11 +16,24 @@ public class StatusPopUpUI : PopUpUI
 
     IEnumerator StatusRoutine()
     {
-        texts["LevelText"].text = GameManager.Data.currentPlayerData.level.ToString();
-        texts["DamageText"].text = GameManager.Data.currentPlayerData.attack.ToString();
-        texts["SpeedText"].text = GameManager.Data.currentPlayerData.movementSpeed.ToString();
-        texts["KillsText"].text = GameManager.Data.currentPlayerData.kill.ToString();
-        // texts["TimeText"].text = GameManager.Data.level.ToString();
+        texts["LevelText"].text = $"레벨 : {GameManager.Data.currentPlayerData.level}";
+        texts["DamageText"].text = $"공격력 : {GameManager.Data.currentPlayerData.damage}";
+        texts["SpeedText"].text = $"이동속도 : {GameManager.Data.currentPlayerData.movementSpeed}";
+
+        texts["HpText"].text = $"체력 : {GameManager.Data.currentPlayerData.hp}";
+        texts["HpRecoveryText"].text = $"체력 회복력 : {GameManager.Data.currentPlayerData.hpRecovery}";
+        texts["ArmorText"].text = $"방어력 : {GameManager.Data.currentPlayerData.armor}";
+
+        texts["CriticalRateText"].text = $"크리티컬 확률 : {GameManager.Data.currentPlayerData.criticalRate}";
+        texts["AreaText"].text = $"공격 범위 : {GameManager.Data.currentPlayerData.area}";
+        texts["ProjectileSpeedText"].text = $"공격 속도 : {GameManager.Data.currentPlayerData.projectileSpeed}";
+        texts["DurationText"].text = $"지속시간 : {GameManager.Data.currentPlayerData.duration}";
+        texts["CoolTimeText"].text = $"쿨타임 : {GameManager.Data.currentPlayerData.coolTime}";
+
+        texts["MagnetText"].text = $"자석 : {GameManager.Data.currentPlayerData.magnet}";
+        texts["LuckText"].text = $"행운 : {GameManager.Data.currentPlayerData.luck}";
+        texts["ExpMultiplierText"].text = $"경험치 배율 : {GameManager.Data.currentPlayerData.expMultiplier}";
+        texts["GoldMultiplierText"].text = $"골드 배율 : {GameManager.Data.currentPlayerData.goldMultiplier}";
 
         yield return null;
     }

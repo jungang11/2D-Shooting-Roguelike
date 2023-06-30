@@ -19,7 +19,7 @@ public class MonsterController : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
 
-    private float hp = 10f;
+    private float hp;
     private float maxHp = 10f;
     private bool isAlive;
     public bool IsAlive { get { return isAlive; } }
@@ -30,7 +30,7 @@ public class MonsterController : MonoBehaviour
         col = GetComponent<Collider2D>();
         render = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        target = GameObject.Find("Player").GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()

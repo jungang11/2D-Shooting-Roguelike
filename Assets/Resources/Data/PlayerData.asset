@@ -17,20 +17,20 @@ MonoBehaviour:
   exp: 0
   nextExp: 10
   hp: 30
-  hpRecovery: 2
-  armor: 1
+  hpRecovery: 0
+  armor: 0
   movementSpeed: 5
-  attack: 3
-  criticalRate: 1
+  damage: 1
+  criticalRate: 0
   criticalMultiplier: 2
   area: 7
   projectileSpeed: 5
   duration: 1
-  cooldown: 1
-  magnet: 2
-  luck: 1
-  expMultiplier: 0
-  goldMultiplier: 0
+  coolTime: 2
+  magnet: 0
+  luck: 0
+  expMultiplier: 1
+  goldMultiplier: 1
   statsIncreasePerLevel:
     hp: 1
     hpRecovery: 1
