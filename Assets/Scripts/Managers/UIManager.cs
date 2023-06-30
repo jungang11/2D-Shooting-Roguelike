@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
         T ui = GameManager.Pool.GetUI<T>(popUpUI);
         ui.transform.SetParent(popUpCanvas.transform, false);
         popUpStack.Push(ui);
+        Debug.Log(popUpStack);
 
         // 시간 정지
         Time.timeScale = 0f;

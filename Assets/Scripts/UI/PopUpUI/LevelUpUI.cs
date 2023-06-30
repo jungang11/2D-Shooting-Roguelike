@@ -31,8 +31,6 @@ public class LevelUpUI : PopUpUI
     // 아이템 버튼마다 index에 따라 다르게 호출
     public void ChoiceItem(int index)
     {
-        GameManager.UI.ClosePopUpUI();
-
         switch (index)
         {
             case 0: // 기본 검
@@ -67,6 +65,8 @@ public class LevelUpUI : PopUpUI
                 Debug.Log("회복");
                 break;
         }
+
+        GameManager.UI.ClosePopUpUI();
     }
 
     IEnumerator ShowItemsRoutine()
