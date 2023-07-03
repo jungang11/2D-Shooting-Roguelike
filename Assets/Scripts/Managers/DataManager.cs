@@ -9,12 +9,24 @@ public class DataManager : MonoBehaviour
     public PlayerData basePlayerData;
     public PlayerData currentPlayerData;
 
+    public ItemData swordData;
+    public ItemData bulletData;
+    public ItemData electricityData;
+    public ItemData explosionData;
+    public ItemData fireData;
+
     private void Awake()
     {
         // 원본 Scriptabel Object
         basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
         // Scriptable Object Clone 사용
         currentPlayerData = GameManager.Resource.Instantiate<PlayerData>("Data/PlayerData", transform);
+
+        swordData = GameManager.Resource.Instantiate<ItemData>("Data/NormalSword", transform);
+        bulletData = GameManager.Resource.Instantiate<ItemData>("Data/Bullet", transform);
+        electricityData = GameManager.Resource.Instantiate<ItemData>("Data/Electricity", transform);
+        explosionData = GameManager.Resource.Instantiate<ItemData>("Data/Explosion", transform);
+        fireData = GameManager.Resource.Instantiate<ItemData>("Data/Fire", transform);
     }
 
     public void GetExp()

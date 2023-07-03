@@ -127,7 +127,7 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            target.GetComponent<PlayerController>().TakeHit(0.2f);
+            target.GetComponent<PlayerController>().TakeHit(1.2f);
         }
         else
             return;

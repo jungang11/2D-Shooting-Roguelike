@@ -31,6 +31,53 @@ Transform:
   m_Father: {fileID: 2191940861471866695}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &370772617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 370772618}
+  - component: {fileID: 370772619}
+  m_Layer: 0
+  m_Name: BulletHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &370772618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370772617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1646984977}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &370772619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370772617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f0333c49ca12f4384eda653e2fb401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  dirVec: {x: 0, y: 0, z: 0}
 --- !u!1 &668409721
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +256,53 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &1164390329
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1164390330}
+  - component: {fileID: 1164390331}
+  m_Layer: 0
+  m_Name: ExplosionHodler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1164390330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164390329}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1646984977}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1164390331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164390329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560cee97b29f7fb4e9d523845988fa0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  dirVec: {x: 0, y: 0, z: 0}
 --- !u!1 &1646984976
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +333,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 792241501}
+  - {fileID: 370772618}
+  - {fileID: 2029437450}
+  - {fileID: 1164390330}
   m_Father: {fileID: 2191940861471866695}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,19 +351,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0634603dc98072c499ca688a080c65bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponStats:
-    defaultDamage: 0
-    characterDamageMultiplier: 0
-    damage: 0
-    cooldown: 0
-    duration: 0
-    interval: 0
-    amount: 0
-    knockbackPower: 0
-    size: 0
-    speed: 0
-    pierce: 0
-  player: {fileID: 2191940861471866692}
+  player: {fileID: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  dirVec: {x: 0, y: 0, z: 0}
+--- !u!1 &2029437449
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2029437450}
+  - component: {fileID: 2029437451}
+  m_Layer: 0
+  m_Name: ElectricityHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2029437450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029437449}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1646984977}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2029437451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029437449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c174c245349d947bec542261a8791b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  targetPoint: {x: 0, y: 0, z: 0}
+  dirVec: {x: 0, y: 0, z: 0}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,24 +445,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWeaponStats:
-    defaultDamage: 0
-    characterDamageMultiplier: 0
-    damage: 0
-    cooldown: 0
-    duration: 0
-    interval: 0
-    amount: 0
-    knockbackPower: 0
-    size: 0
-    speed: 0
-    pierce: 0
   damage: 0.5
   count: 1
   speed: 3
-  closeWeaponPrefabs:
-  - {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
-  place: {fileID: 959229859296903099}
+  closeWeaponPrefab: {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
+  swordData: {fileID: 0}
 --- !u!1 &1951175191250887372
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,6 +758,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   moveSpeed: 5
+  playerData: {fileID: 11400000, guid: 87ab46fdb1a3d0e4dbc1b84c17db1a8d, type: 2}
 --- !u!114 &3115905417959318683
 MonoBehaviour:
   m_ObjectHideFlags: 0

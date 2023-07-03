@@ -8,22 +8,28 @@ public class Bullet : MonoBehaviour
     public float speed;
 
     private Rigidbody2D rb;
+    private ItemData bulletData;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        bulletData = GameManager.Data.bulletData;
     }
 
     // 발사 목표 지점, 데미지, 스피드 설정
     public void Init(Vector3 dirVec)
     {
-        StartCoroutine(FireRoutine(dirVec));
+        StartCoroutine(BulletRoutine(dirVec));
     }
 
-    IEnumerator FireRoutine(Vector3 dirVec)
+    IEnumerator BulletRoutine(Vector3 dirVec)
     {
         while (true)
         {
+            damage = bulletData.Items[0].damage;
+            speed = bulletData.Items[0].speed;
+
             transform.rotation = Quaternion.FromToRotation(Vector3.up, dirVec);
             rb.velocity = dirVec * speed;
 

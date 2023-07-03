@@ -14,43 +14,27 @@ public class ItemData : ScriptableObject
     [Serializable]
     public class ItemInfo
     {
-        public int itemId;
-        public string itemName;
-        public string itemDesc;
-        public Sprite itemImg;
-        public ItemType itemType;
+        public int itemId;              // itemId
+        public string itemName;         // 아이템 이름
+        public string itemDesc;         // 아이템 설명
+        public Sprite itemImg;          // 아이템 이미지 스프라이트
+        public ItemType itemType;       // 아이템 타입 ( 근접, 원거리, 패시브 , 힐)
 
-        public float baseDamage;
-        public int baseCount;
+        public float baseDamage;        // 기본 데미지
         public float[] damages;
-        public int[] counts;
+        public int baseCount;           // 기본 Count (갯수)
+        public float[] counts;
 
-        public WeaponStats[] weaponLevelData;
-    }
-}
+        public int currentLevel;        // 아이템 현재 레벨
+        public int maxLevel;            // 아이템 최대 레벨
 
-[Serializable]
-public class WeaponStats
-{
-    public int damage;              // 공격력
-    public int cooldown;            // 쿨타임
-    public float interval;          // 공격 간 딜레이
+        public float damage;            // 공격력
+        public float cooldown;          // 쿨타임
+        public float interval;          // 공격 간 딜레이
 
-    public float amount;            // 갯수
-    public int size;                // 크기
-    public float speed;             // 속도
-    public float pierce;            // 관통 횟수
-
-    // UpdateStats함수는 플레이어 무기가 레벨업 할 때
-    // 스크립터블 오브젝트를 참조하는 것이 아닌 값을 복사해오기 위함.
-    public void UpdateStats(WeaponStats weaponStats)
-    {
-        damage = weaponStats.damage;
-        cooldown = weaponStats.cooldown;
-        interval = weaponStats.interval;
-        amount = weaponStats.amount;
-        size = weaponStats.size;
-        speed = weaponStats.speed;
-        pierce = weaponStats.pierce;
+        public float count;             // 갯수
+        public float size;              // 크기
+        public float speed;             // 속도
+        public float pierce;            // 관통 횟수
     }
 }

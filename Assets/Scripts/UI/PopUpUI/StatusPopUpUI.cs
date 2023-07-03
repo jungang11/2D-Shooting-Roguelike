@@ -14,10 +14,15 @@ public class StatusPopUpUI : PopUpUI
         StartCoroutine(StatusRoutine());
     }
 
+    private void OnDisable()
+    {
+        StopCoroutine(StatusRoutine());
+    }
+
     IEnumerator StatusRoutine()
     {
-        texts["LevelText"].text = $"레벨 : {GameManager.Data.currentPlayerData.level}";
-        texts["DamageText"].text = $"공격력 : {GameManager.Data.currentPlayerData.damage}";
+        texts["LevelText"].text = $"레벨 : {playerData.level}";
+        texts["DamageText"].text = $"공격력 : {playerData.damage}";
         texts["SpeedText"].text = $"이동속도 : {GameManager.Data.currentPlayerData.movementSpeed}";
 
         texts["HpText"].text = $"체력 : {GameManager.Data.currentPlayerData.hp}";

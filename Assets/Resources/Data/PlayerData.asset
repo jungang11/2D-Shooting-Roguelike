@@ -18,9 +18,9 @@ MonoBehaviour:
   nextExp: 10
   hp: 30
   hpRecovery: 0
-  armor: 0
+  armor: 1
   movementSpeed: 5
-  damage: 1
+  damage: 2
   criticalRate: 0
   criticalMultiplier: 2
   area: 7

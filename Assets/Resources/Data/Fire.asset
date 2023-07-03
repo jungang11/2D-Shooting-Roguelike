@@ -10,23 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4273dbc213303c74091692fdd6a60c30, type: 3}
-  m_Name: 6Attack
+  m_Name: Fire
   m_EditorClassIdentifier: 
   items:
-  - itemId: 6
-    itemName: "\uB370\uBBF8\uC9C0"
-    itemDesc: "\uB370\uBBF8\uC9C0"
-    itemImg: {fileID: 21300000, guid: f9a70ad97a4ed4e4bac2d1b878559fc7, type: 3}
-    itemType: 2
+  - itemId: 5
+    itemName: "\uBD88\uAE38"
+    itemDesc: "\uB545\uC5D0 \uB0A8\uC544\uC788\uB294 \uBD88\uAE38"
+    itemImg: {fileID: 21300000, guid: deb7d224e3a9e694a928397322d21cfc, type: 3}
+    itemType: 1
     baseDamage: 1
     baseCount: 1
     damages:
-    - 1
-    - 1
-    - 1
-    - 1
+    - 2
+    - 2.5
+    - 3
+    - 3.5
     counts: 01000000010000000100000001000000
-    rarity: 0
-    maxAmount: 0
-    isAttachedPlayer: 0
-    levelData: []
+    weaponLevelData: []

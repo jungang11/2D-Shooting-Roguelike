@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4273dbc213303c74091692fdd6a60c30, type: 3}
+  m_Name: Armor
+  m_EditorClassIdentifier: 
+  items:
+  - itemId: 6
+    itemName: "\uBC29\uC5B4\uB825"
+    itemDesc: "\uBC29\uC5B4\uB825"
+    itemImg: {fileID: 21300000, guid: dccaa6133b0cb4f94afe454fe4a5a17e, type: 3}
+    itemType: 2
+    baseDamage: 1
+    baseCount: 1
+    damages:
+    - 1
+    - 1
+    - 1
+    - 1
+    counts: 01000000010000000100000001000000
+    weaponLevelData: []

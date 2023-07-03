@@ -9,7 +9,7 @@ public class MonsterSpawn : MonoBehaviour
     [SerializeField] Transform[] spawnPoints;   // 스폰 위치들
 
     public List<GameObject> monsters = new List<GameObject>();  // 몬스터 리스트
-    private int poolSize = 30;
+    private int poolSize = 50;
 
     private void Start()
     {
@@ -19,6 +19,7 @@ public class MonsterSpawn : MonoBehaviour
             monsters.Add(GameManager.Pool.Get(spawnPrefabs[i]));
             monsters[i].name = "Enemy " + i;
             monsters[i].SetActive(false);
+            monsters[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
         }
         StartCoroutine(SpawnRoutine());
     }

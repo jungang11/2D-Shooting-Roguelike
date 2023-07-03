@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,6 +31,16 @@ public class Item : MonoBehaviour
 
     private void OnEnable()
     {
+        StartCoroutine(ShowItemTextRoutine());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(ShowItemTextRoutine());
+    }
+
+    IEnumerator ShowItemTextRoutine()
+    {
         textLevel.text = $"Lv. {level}";
 
         switch (data.Items[0].itemType)
@@ -44,11 +55,13 @@ public class Item : MonoBehaviour
                 textDesc.text = $"{data.Items[0].itemDesc}, 능력치 {data.Items[0].damages[level] * 10f}% 증가";
                 break;
             case ItemData.ItemType.Heal:
-                textDesc.text = $"{data.Items[0].itemDesc}, 체력 {data.Items[0].damages[level] } 회복";
+                textDesc.text = $"{data.Items[0].itemDesc}, 체력 {data.Items[0].damages[level]} 회복";
                 break;
             default:
                 textDesc.text = $"{data.Items[0].itemDesc}";
                 break;
         }
+
+        yield return null;
     }
 }

@@ -60,7 +60,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeHit(float damage)
     {
-        HP -= damage;
+        // 방어력이 데미지보다 클 경우 hp는 0.01f만 감소
+        if (damage < playerData.armor)
+            HP -= 0.01f;
+        // 아닐 경우 
+        else
+            HP -= (damage - playerData.armor);
 
         if (hp <= 0)
         {

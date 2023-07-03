@@ -8,6 +8,8 @@ public class LevelUpUI : PopUpUI
     Item[] items;
     int[] ranNum = new int[3];
 
+    public CloseWeapon closeWeapon;
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,9 +25,15 @@ public class LevelUpUI : PopUpUI
         items = GetComponentsInChildren<Item>();
     }
 
-    private void Start()
+    // 레벨이 올라 레벨업 UI가 활성화 될 경우 코루틴 실행
+    private void OnEnable()
     {
         StartCoroutine(ShowItemsRoutine());
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(ShowItemsRoutine());        
     }
 
     // 아이템 버튼마다 index에 따라 다르게 호출
@@ -33,42 +41,46 @@ public class LevelUpUI : PopUpUI
     {
         switch (index)
         {
-            case 0: // 기본 검
+            case 0: // 기본 검 선택
                 items[index].level++;
+                GameManager.Data.swordData.Items[0].baseCount++;
+                GameManager.Data.swordData.Items[0].baseDamage++;
                 Debug.Log("검 강화");
                 break;
-            case 1: // 총알
+            case 1: // 총알 선택
                 items[index].level++;
                 Debug.Log("총알 강화");
                 break;
-            case 2: // 전기
+            case 2: // 전기 선택
                 items[index].level++;
                 Debug.Log("전기 강화");
                 break;
-            case 3: // 방어력
+            case 3: // 방어력 선택
                 items[index].level++;
-                GameManager.Data.currentPlayerData.armor += 2f;
+                playerData.armor += 0.5f;
                 Debug.Log("방어력 증가");
                 break;
-            case 4: // 이동속도
+            case 4: // 이동속도 선택
                 items[index].level++;
-                GameManager.Data.currentPlayerData.movementSpeed += 2f;
+                playerData.movementSpeed += 2f;
                 Debug.Log("이동속도 증가");
                 break;
-            case 5: // 공격력
+            case 5: // 공격력 선택
                 items[index].level++;
-                GameManager.Data.currentPlayerData.damage += 2f;
+                playerData.damage += 2f;
                 Debug.Log("공격력 증가");
                 break;
             case 6: // 회복 아이템 (만렙)
-                GameManager.Data.currentPlayerData.hp += 5f;
+                playerData.hp += 5f;
                 Debug.Log("회복");
                 break;
         }
 
+        // 선택 후 UI 닫기
         GameManager.UI.ClosePopUpUI();
     }
 
+    // 선택지를 나타내는 코루틴
     IEnumerator ShowItemsRoutine()
     {
         // 모든 아이템 비활성화
@@ -80,9 +92,9 @@ public class LevelUpUI : PopUpUI
         // 비활성화된 아이템들 중 랜덤한 3개 아이템 활성화
         while (true)
         {
-            ranNum[0] = Random.Range(0, items.Length);
-            ranNum[1] = Random.Range(0, items.Length);
-            ranNum[2] = Random.Range(0, items.Length);
+            ranNum[0] = Random.Range(0, items.Length-1);
+            ranNum[1] = Random.Range(0, items.Length-1);
+            ranNum[2] = Random.Range(0, items.Length-1);
             Debug.Log($"{ranNum[0]} {ranNum[1]} {ranNum[2]}");
 
             // 중복 제거
