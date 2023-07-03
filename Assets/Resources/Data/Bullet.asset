@@ -21,16 +21,17 @@ MonoBehaviour:
     baseDamage: 1
     damages:
     - 1
-    - 1.5
-    - 2
-    - 2.5
+    - 1
+    - 1
+    - 1
+    - 5
     baseCount: 1
     counts: []
     currentLevel: 1
     maxLevel: 6
     damage: 1
-    cooldown: 0.2
-    interval: 1
+    cooldown: 0.4
+    duration: 2
     count: 1
     size: 1
     speed: 10

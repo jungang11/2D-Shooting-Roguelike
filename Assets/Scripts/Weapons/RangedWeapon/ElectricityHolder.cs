@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ElectricityHolder : RangedWeapon
 {
+    public List<Electricity> electricities = new List<Electricity>();
+    public Electricity electricityPrefab;
+
     protected override void Awake()
     {
         base.Awake();
@@ -11,11 +14,24 @@ public class ElectricityHolder : RangedWeapon
 
     private void Start()
     {
-        // Bullet의 현재 레벨이 0(무기가 없는 상태)가 아닐 경우 총알 발사
+        // poolSize만큼 리스트를 담은 후 스폰
+        for (int i = 0; i < poolSize; i++)
+        {
+            electricities.Add(GameManager.Pool.Get(electricityPrefab));
+            electricities[i].name = "Electricity " + i;
+            electricities[i].gameObject.SetActive(false);
+            electricities[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
+        }
+
         if (GameManager.Data.electricityData.Items[0].currentLevel > 0)
         {
             StartCoroutine(ElectricityRoutine());
         }
+    }
+
+    public void Init()
+    {
+        StartCoroutine(ElectricityRoutine());
     }
 
     private IEnumerator ElectricityRoutine()
@@ -25,24 +41,26 @@ public class ElectricityHolder : RangedWeapon
             // 가까운 적이 없을경우 null 반환
             if (player.scanner.nearestEnemy != null)
             {
-                ElectricityInit();
+                // 가장 가까운 적의 위치 구하기
+                targetPoint = player.scanner.nearestEnemy.position;
+                dirVec = (targetPoint - transform.position).normalized;
+
+                for (int i = 0; i < poolSize; i++)
+                {
+                    if (electricities[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                        continue;
+
+                    Vector3 spawnPos = transform.position;
+                    electricities[i].transform.position = spawnPos;
+                    electricities[i].gameObject.SetActive(true);
+                    electricities[i].GetComponent<Electricity>().Init(dirVec);
+
+                    break;
+                }
                 // 총알 발사 딜레이
                 yield return new WaitForSeconds(GameManager.Data.electricityData.Items[0].cooldown);
             }
-            else
-            {
-                yield return null;
-            }
+            yield return null;
         }
-    }
-
-    private void ElectricityInit()
-    {
-        // 가장 가까운 적의 위치 구하기
-        targetPoint = player.scanner.nearestEnemy.position;
-        dirVec = (targetPoint - transform.position).normalized;
-        // 발사체 생성 및 초기화
-        Electricity elec = GameManager.Resource.Instantiate<Electricity>("Prefab/Weapon/Electricity", transform.position, transform.rotation);
-        elec.Init(dirVec);
     }
 }

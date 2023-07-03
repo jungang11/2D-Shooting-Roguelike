@@ -5,6 +5,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     protected PlayerData playerData;
+    public int poolSize;
 
     protected virtual void Awake()
     {

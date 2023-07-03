@@ -54,9 +54,9 @@ public class MonsterSpawn : MonoBehaviour
         }
     }
 
-    // SpawnPoint 0~7 까지 중 랜덤으로 위치 받아옴
+    // SpawnPoint 0~16 까지 중 랜덤으로 위치 받아옴
     private Vector2 GetSpawnPos()
     {
-        return spawnPoints[(Random.Range(0, 8))].position;
+        return spawnPoints[(Random.Range(0, 15))].position;
     }
 }

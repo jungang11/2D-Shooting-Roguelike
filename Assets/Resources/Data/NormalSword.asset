@@ -19,11 +19,25 @@ MonoBehaviour:
     itemImg: {fileID: 6176583339189516475, guid: 545f9c74323fe914c829180b85afb1b7, type: 3}
     itemType: 0
     baseDamage: 0.5
-    baseCount: 1
     damages:
     - 1
     - 1
     - 1
     - 1
-    counts: 01000000010000000100000001000000
-    weaponLevelData: []
+    - 1
+    baseCount: 1
+    counts:
+    - 1
+    - 1
+    - 1
+    - 1
+    - 3
+    currentLevel: 1
+    maxLevel: 6
+    damage: 0.5
+    cooldown: 0
+    duration: 0
+    count: 0
+    size: 0
+    speed: 200
+    pierce: -1

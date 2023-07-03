@@ -17,10 +17,13 @@ public class LevelUpUI : PopUpUI
         buttons["Item1_Button"].onClick.AddListener(() => { ChoiceItem(0); });  // 기본 검
         buttons["Item2_Button"].onClick.AddListener(() => { ChoiceItem(1); });  // 총알
         buttons["Item3_Button"].onClick.AddListener(() => { ChoiceItem(2); });  // 전기
-        buttons["Item4_Button"].onClick.AddListener(() => { ChoiceItem(3); });  // 방어력
-        buttons["Item5_Button"].onClick.AddListener(() => { ChoiceItem(4); });  // 이동속도
-        buttons["Item6_Button"].onClick.AddListener(() => { ChoiceItem(5); });  // 공격력
-        buttons["Item7_Button"].onClick.AddListener(() => { ChoiceItem(6); });  // 회복 아이템
+        buttons["Item4_Button"].onClick.AddListener(() => { ChoiceItem(3); });  // 폭발
+        buttons["Item5_Button"].onClick.AddListener(() => { ChoiceItem(4); });  // 불길
+
+        buttons["Item6_Button"].onClick.AddListener(() => { ChoiceItem(5); });  // 방어력
+        buttons["Item7_Button"].onClick.AddListener(() => { ChoiceItem(6); });  // 이동속도
+        buttons["Item8_Button"].onClick.AddListener(() => { ChoiceItem(7); });  // 공격력
+        buttons["Item9_Button"].onClick.AddListener(() => { ChoiceItem(8); });  // 회복 아이템
 
         items = GetComponentsInChildren<Item>();
     }
@@ -43,34 +46,45 @@ public class LevelUpUI : PopUpUI
         {
             case 0: // 기본 검 선택
                 items[index].level++;
-                GameManager.Data.swordData.Items[0].baseCount++;
-                GameManager.Data.swordData.Items[0].baseDamage++;
-                Debug.Log("검 강화");
+                GameManager.Data.swordData.Items[0].currentLevel++;
+                Debug.Log($"검 강화 검 레벨{GameManager.Data.swordData.Items[0].currentLevel}");
                 break;
             case 1: // 총알 선택
                 items[index].level++;
+                GameManager.Data.bulletData.Items[0].currentLevel++;
                 Debug.Log("총알 강화");
                 break;
             case 2: // 전기 선택
                 items[index].level++;
+                GameManager.Data.electricityData.Items[0].currentLevel++;
                 Debug.Log("전기 강화");
                 break;
-            case 3: // 방어력 선택
+            case 3: // 폭발 선택
+                items[index].level++;
+                GameManager.Data.explosionData.Items[0].currentLevel++;
+                Debug.Log("폭발 강화");
+                break;
+            case 4: // 불길 선택
+                items[index].level++;
+                GameManager.Data.fireData.Items[0].currentLevel++;
+                Debug.Log("불길 강화");
+                break;
+            case 5: // 방어력 선택
                 items[index].level++;
                 playerData.armor += 0.5f;
                 Debug.Log("방어력 증가");
                 break;
-            case 4: // 이동속도 선택
+            case 6: // 이동속도 선택
                 items[index].level++;
                 playerData.movementSpeed += 2f;
                 Debug.Log("이동속도 증가");
                 break;
-            case 5: // 공격력 선택
+            case 7: // 공격력 선택
                 items[index].level++;
                 playerData.damage += 2f;
                 Debug.Log("공격력 증가");
                 break;
-            case 6: // 회복 아이템 (만렙)
+            case 8: // 회복 아이템 (만렙)
                 playerData.hp += 5f;
                 Debug.Log("회복");
                 break;
@@ -95,7 +109,6 @@ public class LevelUpUI : PopUpUI
             ranNum[0] = Random.Range(0, items.Length-1);
             ranNum[1] = Random.Range(0, items.Length-1);
             ranNum[2] = Random.Range(0, items.Length-1);
-            Debug.Log($"{ranNum[0]} {ranNum[1]} {ranNum[2]}");
 
             // 중복 제거
             if (ranNum[0] != ranNum[1] && ranNum[0] != ranNum[2] && ranNum[1] != ranNum[2])
@@ -107,9 +120,9 @@ public class LevelUpUI : PopUpUI
             Item showItem = items[ranNum[i]];
 
             // 만렙 아이템의 경우 아이템 대신 회복 아이템(소비아이템)이 활성화 되도록 함
-            if (showItem.level == showItem.data.Items[0].damages.Length)
+            if (showItem.level == showItem.data.Items[0].maxLevel)
             {
-                items[6].gameObject.SetActive(true);
+                items[8].gameObject.SetActive(true);
             }
             else
             {

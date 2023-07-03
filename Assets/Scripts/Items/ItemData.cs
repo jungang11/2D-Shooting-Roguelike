@@ -30,7 +30,7 @@ public class ItemData : ScriptableObject
 
         public float damage;            // 공격력
         public float cooldown;          // 쿨타임
-        public float interval;          // 공격 간 딜레이
+        public float duration;          // 공격 지속 시간 (발사체 유지 시간)
 
         public float count;             // 갯수
         public float size;              // 크기

@@ -6,11 +6,16 @@ using UnityEngine;
 public class Fire : MonoBehaviour
 {
     private CapsuleCollider2D col;
+    public ItemData fireData;
+    public PlayerData playerData;
     public float damage;
 
     private void Awake()
     {
         col = GetComponent<CapsuleCollider2D>();
+
+        fireData = GameManager.Data.fireData;
+        playerData = GameManager.Data.currentPlayerData;
     }
 
     public void Init()
@@ -25,9 +30,8 @@ public class Fire : MonoBehaviour
 
     IEnumerator FireRoutine()
     {
-        yield return new WaitForSeconds(2f);
-
-        GameManager.Resource.Destroy(gameObject);
+        yield return new WaitForSeconds(fireData.Items[0].duration * playerData.duration);
+        gameObject.SetActive(false);
 
         yield return null;
     }

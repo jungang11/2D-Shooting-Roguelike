@@ -98,12 +98,10 @@ public class MonsterController : MonoBehaviour
         if (collision.CompareTag("Bullet"))
         {
             TakeHit(collision.GetComponent<Bullet>().damage);
-            GameManager.Resource.Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Electricity"))
         {
             TakeHit(collision.GetComponent<Electricity>().damage);
-            GameManager.Resource.Destroy(collision.gameObject);
         }
         if (collision.CompareTag("Explosion"))
         {

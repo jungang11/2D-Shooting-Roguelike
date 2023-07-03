@@ -21,11 +21,11 @@ MonoBehaviour:
   armor: 1
   movementSpeed: 5
   damage: 2
-  criticalRate: 0
+  criticalRate: 1
   criticalMultiplier: 2
   area: 7
-  projectileSpeed: 5
-  duration: 1
+  projectileSpeed: 1
+  duration: 5
   coolTime: 2
   magnet: 0
   luck: 0

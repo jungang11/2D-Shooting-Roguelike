@@ -75,9 +75,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5f0333c49ca12f4384eda653e2fb401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 25
   player: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   dirVec: {x: 0, y: 0, z: 0}
+  bullets: []
+  bulletPrefab: {fileID: 6281084566422510707, guid: aba0aa2e006f3d64d89c6ef06d9d3a9d, type: 3}
 --- !u!1 &668409721
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 560cee97b29f7fb4e9d523845988fa0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 0
   player: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   dirVec: {x: 0, y: 0, z: 0}
@@ -351,6 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0634603dc98072c499ca688a080c65bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 0
   player: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   dirVec: {x: 0, y: 0, z: 0}
@@ -398,9 +403,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c174c245349d947bec542261a8791b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 25
   player: {fileID: 0}
   targetPoint: {x: 0, y: 0, z: 0}
   dirVec: {x: 0, y: 0, z: 0}
+  electricities: []
+  electricityPrefab: {fileID: -3240931202958082393, guid: 8e508495d4444964ab068bc06055a3cc, type: 3}
 --- !u!1 &146632778554159077
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolSize: 0
   damage: 0.5
   count: 1
   speed: 3

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ExplosionHolder : RangedWeapon
 {
+    public List<Explosion> explosions = new List<Explosion>();
+    public Explosion explosionPrefab;
+
     protected override void Awake()
     {
         base.Awake();
@@ -11,11 +14,24 @@ public class ExplosionHolder : RangedWeapon
 
     private void Start()
     {
-        // Bullet의 현재 레벨이 0(무기가 없는 상태)가 아닐 경우 총알 발사
+        // poolSize만큼 리스트를 담은 후 스폰
+        for (int i = 0; i < poolSize; i++)
+        {
+            explosions.Add(GameManager.Pool.Get(explosionPrefab));
+            explosions[i].name = "Explosion " + i;
+            explosions[i].gameObject.SetActive(false);
+            explosions[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
+        }
+
         if (GameManager.Data.explosionData.Items[0].currentLevel > 0)
         {
             StartCoroutine(ExplosionRoutine());
         }
+    }
+
+    public void Init()
+    {
+        StartCoroutine(ExplosionRoutine());
     }
 
     private IEnumerator ExplosionRoutine()
@@ -25,22 +41,23 @@ public class ExplosionHolder : RangedWeapon
             // 가까운 적이 없을경우 null 반환
             if (player.scanner.nearestEnemy != null)
             {
-                ExplosionInit();
-                // 총알 발사 딜레이
+                Vector3 targetPoint = player.scanner.nearestEnemy.position;
+
+                for (int i = 0; i < poolSize; i++)
+                {
+                    if (explosions[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                        continue;
+
+                    explosions[i].transform.position = targetPoint;
+                    explosions[i].gameObject.SetActive(true);
+                    explosions[i].GetComponent<Explosion>().Init();
+
+                    break;
+                }
+                // 폭발 딜레이
                 yield return new WaitForSeconds(GameManager.Data.explosionData.Items[0].cooldown);
             }
-            else
-            {
-                yield return null;
-            }
+            yield return null;
         }
-    }
-
-    private void ExplosionInit()
-    {
-        Transform targetPoint = player.scanner.nearestEnemy;
-
-        Explosion explosion = GameManager.Resource.Instantiate<Explosion>("Prefab/Weapon/Explosion", targetPoint.position, targetPoint.rotation);
-        explosion.Init();
     }
 }

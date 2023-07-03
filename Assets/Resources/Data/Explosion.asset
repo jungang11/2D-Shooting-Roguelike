@@ -20,18 +20,19 @@ MonoBehaviour:
     itemType: 1
     baseDamage: 1
     damages:
+    - 1
+    - 1
+    - 1
     - 2
-    - 2.5
-    - 3
-    - 3.5
+    - 2
     baseCount: 1
     counts: []
     currentLevel: 1
-    maxLevel: 0
-    damage: 10
-    cooldown: 1
-    interval: 0
+    maxLevel: 6
+    damage: 5
+    cooldown: 3
+    duration: 1
     count: 0
-    size: 0
+    size: 3
     speed: 1
     pierce: 0

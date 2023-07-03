@@ -15,7 +15,7 @@ MonoBehaviour:
   items:
   - itemId: 3
     itemName: "\uC804\uAE30"
-    itemDesc: "\uC804\uAE30"
+    itemDesc: "\uBAAC\uC2A4\uD130\uB97C \uD1B5\uACFC\uD558\uB294 \uC804\uAE30"
     itemImg: {fileID: 21300000, guid: 36535c05a1d188c46aca4a0d5a2e9d5f, type: 3}
     itemType: 1
     baseDamage: 1
@@ -24,14 +24,15 @@ MonoBehaviour:
     - 1
     - 1
     - 1
+    - 1
     baseCount: 1
     counts: []
     currentLevel: 1
-    maxLevel: 0
+    maxLevel: 6
     damage: 7
-    cooldown: 1
-    interval: 0
-    count: 0
+    cooldown: 1.4
+    duration: 2
+    count: 1
     size: 0
-    speed: 2
-    pierce: 0
+    speed: 7
+    pierce: -1

@@ -18,32 +18,34 @@ public class CloseWeapon : Weapon
         swordData = GameManager.Data.swordData;
     }
 
-    private void Start()
-    {
-        SetSpear();
-        StartCoroutine(RotateRoutine());
-    }
-
-    public void SetSpear()
-    {
-        speed = 200f;
-        PlaceSword(swordData.Items[0].baseCount);
-    }
-
     private IEnumerator RotateRoutine()
     {
         while (true)
         {
-            damage = swordData.Items[0].damages[swordData.Items[0].currentLevel] 
-                                            * GameManager.Data.currentPlayerData.damage;
+            damage = swordData.Items[0].damage * GameManager.Data.currentPlayerData.damage;
+            speed = swordData.Items[0].speed;
 
             transform.Rotate(Vector3.back * speed * Time.deltaTime);
             yield return null;
         }
     }
 
+private void Start()
+    {
+        Place();
+        StartCoroutine(RotateRoutine());
+    }
+
+    /*private void Update()
+    {
+        transform.Rotate(Vector3.back * speed * Time.deltaTime);
+
+        damage = swordData.Items[0].damage * GameManager.Data.currentPlayerData.damage;
+        speed = swordData.Items[0].speed;
+    }*/
+
     // 캐릭터 주위 무기 배치
-    public void PlaceSword(int count)
+    public void Place()
     {
         // Sword
         for (int i = 0; i < count; i++)
