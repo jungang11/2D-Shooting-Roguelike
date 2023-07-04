@@ -41,4 +41,11 @@ public class DataManager : MonoBehaviour
             GameManager.UI.ShowPopUpUI<PopUpUI>("Prefab/UI/LevelUpUI");
         }
     }
+
+    public void SwordLevelUP()
+    {
+        swordData.Items[0].currentLevel++;
+        swordData.Items[0].damage += swordData.Items[0].damages[swordData.Items[0].currentLevel];
+        swordData.Items[0].count += swordData.Items[0].counts[swordData.Items[0].currentLevel];
+    }
 }

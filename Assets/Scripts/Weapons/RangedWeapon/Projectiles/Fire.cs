@@ -25,7 +25,7 @@ public class Fire : MonoBehaviour
 
     private void OnDisable()
     {
-        StopAllCoroutines();
+        StopCoroutine(FireRoutine());
     }
 
     IEnumerator FireRoutine()

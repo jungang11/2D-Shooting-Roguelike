@@ -13,6 +13,7 @@ public class MonsterScan : MonoBehaviour
     {
         enemies = Physics2D.CircleCastAll(transform.position, range, Vector2.zero, 0, enemyMask);
         nearestEnemy = GetNearest();
+        range = GameManager.Data.currentPlayerData.area;
     }
 
     public Transform GetNearest()

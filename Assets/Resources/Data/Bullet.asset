@@ -25,6 +25,8 @@ MonoBehaviour:
     - 1
     - 1
     - 5
+    - 5
+    - 5
     baseCount: 1
     counts: []
     currentLevel: 1

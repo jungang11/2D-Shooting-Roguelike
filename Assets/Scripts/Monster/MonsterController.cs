@@ -97,15 +97,15 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            TakeHit(collision.GetComponent<Bullet>().damage);
+            TakeHit(GameManager.Data.bulletData.Items[0].damage);
         }
         if (collision.CompareTag("Electricity"))
         {
-            TakeHit(collision.GetComponent<Electricity>().damage);
+            TakeHit(GameManager.Data.electricityData.Items[0].damage);
         }
         if (collision.CompareTag("Explosion"))
         {
-            TakeHit(collision.GetComponent<Explosion>().damage);
+            TakeHit(GameManager.Data.explosionData.Items[0].damage);
         }
     }
 
@@ -113,11 +113,11 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.CompareTag("Fire"))
         {
-            TakeHit(collision.GetComponent<Fire>().damage);
+            TakeHit(GameManager.Data.fireData.Items[0].damage);
         }
         if (collision.gameObject.CompareTag("CloseWeapon"))
         {
-            TakeHit(collision.GetComponent<CloseWeapon>().damage);
+            TakeHit(GameManager.Data.swordData.Items[0].damage);
         }
     }
 

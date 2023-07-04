@@ -137,3 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  poolSize: 25
+  fires: []
+  firePrefab: {fileID: 455905729, guid: 1b28db2c7de6cb24a8a664c8be0625d7, type: 3}

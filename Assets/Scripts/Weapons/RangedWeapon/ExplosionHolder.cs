@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,9 @@ public class ExplosionHolder : RangedWeapon
 {
     public List<Explosion> explosions = new List<Explosion>();
     public Explosion explosionPrefab;
+
+    public List<Fire> fires = new List<Fire>();
+    public Fire firePrefab;
 
     protected override void Awake()
     {
@@ -20,7 +24,12 @@ public class ExplosionHolder : RangedWeapon
             explosions.Add(GameManager.Pool.Get(explosionPrefab));
             explosions[i].name = "Explosion " + i;
             explosions[i].gameObject.SetActive(false);
-            explosions[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
+            explosions[i].transform.SetParent(transform);
+
+            fires.Add(GameManager.Pool.Get(firePrefab));
+            fires[i].name = "Fire " + i;
+            fires[i].gameObject.SetActive(false);
+            fires[i].transform.SetParent(transform);
         }
 
         if (GameManager.Data.explosionData.Items[0].currentLevel > 0)
@@ -51,6 +60,12 @@ public class ExplosionHolder : RangedWeapon
                     explosions[i].transform.position = targetPoint;
                     explosions[i].gameObject.SetActive(true);
                     explosions[i].GetComponent<Explosion>().Init();
+
+                    yield return new WaitForSeconds(playerData.duration * GameManager.Data.explosionData.Items[0].duration);
+
+                    fires[i].transform.position = targetPoint;
+                    fires[i].gameObject.SetActive(true);
+                    fires[i].GetComponent<Fire>().Init();
 
                     break;
                 }

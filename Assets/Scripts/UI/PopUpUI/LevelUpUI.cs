@@ -14,11 +14,15 @@ public class LevelUpUI : PopUpUI
     {
         base.Awake();
 
+        // Weapons
+
         buttons["Item1_Button"].onClick.AddListener(() => { ChoiceItem(0); });  // 기본 검
         buttons["Item2_Button"].onClick.AddListener(() => { ChoiceItem(1); });  // 총알
         buttons["Item3_Button"].onClick.AddListener(() => { ChoiceItem(2); });  // 전기
         buttons["Item4_Button"].onClick.AddListener(() => { ChoiceItem(3); });  // 폭발
         buttons["Item5_Button"].onClick.AddListener(() => { ChoiceItem(4); });  // 불길
+
+        // Passive, Heal
 
         buttons["Item6_Button"].onClick.AddListener(() => { ChoiceItem(5); });  // 방어력
         buttons["Item7_Button"].onClick.AddListener(() => { ChoiceItem(6); });  // 이동속도
@@ -46,7 +50,7 @@ public class LevelUpUI : PopUpUI
         {
             case 0: // 기본 검 선택
                 items[index].level++;
-                GameManager.Data.swordData.Items[0].currentLevel++;
+                GameManager.Data.SwordLevelUP();
                 Debug.Log($"검 강화 검 레벨{GameManager.Data.swordData.Items[0].currentLevel}");
                 break;
             case 1: // 총알 선택
