@@ -1240,10 +1240,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: 530a6a801cc47aa41aff58ea80360a90, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -1285,7 +1288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -600}
+  m_AnchoredPosition: {x: 500, y: -900}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &5014714000802636391
@@ -1300,10 +1303,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: 1757ca5dd27d9184494fa080ca889e66, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -2042,7 +2048,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -300}
+  m_AnchoredPosition: {x: 500, y: -450}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1728867481404047277
@@ -2057,10 +2063,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: db258d6c8281cb9419c1fdf7d13f1bd0, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -2313,7 +2322,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -900}
+  m_AnchoredPosition: {x: 500, y: -1200}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &7876751975127748232
@@ -2328,10 +2337,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: 7b79142ce3468ee41825109aeafd4c3a, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -2773,10 +2785,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: ee978b242374ce44797340768874283a, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -3760,7 +3775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -750}
+  m_AnchoredPosition: {x: 500, y: -1050}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &440554033295544048
@@ -3775,10 +3790,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: 25db9138cbd60554f9b2950522d0cb3f, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -4222,7 +4240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -300}
+  m_AnchoredPosition: {x: 500, y: -600}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &6185994454321648161
@@ -4237,10 +4255,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: 2d65baa2a29bb5a4e941a5ac09474bb5, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -6117,7 +6138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -450}
+  m_AnchoredPosition: {x: 500, y: -750}
   m_SizeDelta: {x: 1000, y: 150}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1268718650150927522
@@ -6132,10 +6153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: f6726e9664abbfb4fba68daac613bbec, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}
@@ -6576,10 +6600,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a7ed08fe126ad64c9aed5f2cb199da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {r: 1, g: 1, b: 1, a: 1}
+  onMouse: {r: 0.8784314, g: 0.24705882, b: 0.24705882, a: 1}
   data: {fileID: 11400000, guid: befa7800e552abc49ac1b735650d43be, type: 2}
   level: 1
   weapon: {fileID: 0}
   image: {fileID: 0}
+  BackGroundImg: {fileID: 0}
   textLevel: {fileID: 0}
   textName: {fileID: 0}
   textDesc: {fileID: 0}

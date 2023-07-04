@@ -15,9 +15,9 @@ MonoBehaviour:
   items:
   - itemId: 4
     itemName: "\uD3ED\uBC1C"
-    itemDesc: "\uBAAC\uC2A4\uD130 \uC704\uCE58\uC5D0 \uD3ED\uBC1C\uD558\uB294 \uACF5\uACA9"
+    itemDesc: "\uD3ED\uBC1C"
     itemImg: {fileID: 21300000, guid: ba8a68ef96d4cda418643e8b171c72d9, type: 3}
-    itemType: 1
+    itemType: 3
     baseDamage: 1
     damages:
     - 1
@@ -28,7 +28,7 @@ MonoBehaviour:
     - 2
     - 2
     baseCount: 1
-    counts: 
+    counts: 01000000010000000100000001000000010000000100000001000000
     currentLevel: 0
     maxLevel: 6
     damage: 5

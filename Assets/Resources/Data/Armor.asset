@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - itemId: 6
-    itemName: "\uBC29\uC5B4\uB825"
-    itemDesc: "\uBC29\uC5B4\uB825"
+    itemName: "\uBC29\uC5B4"
+    itemDesc: "\uC544\uBA38"
     itemImg: {fileID: 21300000, guid: dccaa6133b0cb4f94afe454fe4a5a17e, type: 3}
-    itemType: 2
+    itemType: 5
     baseDamage: 1
     damages:
     - 1
@@ -34,6 +34,7 @@ MonoBehaviour:
     damage: 0
     cooldown: 0
     duration: 0
+    interval: 0
     count: 0
     size: 0
     speed: 0

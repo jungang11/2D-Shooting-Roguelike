@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemData", menuName = "Data/Item")]
 public class ItemData : ScriptableObject
 {
-    public enum ItemType { CloseWeapon, RangedWeapon, Passive, Heal }
+    public enum ItemType { NormalSword, Bullet, Electricity, Explosion, Fire,
+                           Armor, MovementSpeed, Damage, Potion }
 
     [SerializeField] ItemInfo[] items;
     public ItemInfo[] Items { get { return items; } }

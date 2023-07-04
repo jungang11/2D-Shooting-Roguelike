@@ -36,6 +36,7 @@ public class MonsterController : MonoBehaviour
     private void OnEnable()
     {
         Init();
+        StartCoroutine(ChaseRoutine());
     }
 
     public void Init()
@@ -44,26 +45,22 @@ public class MonsterController : MonoBehaviour
         hp = maxHp;
     }
 
-    private void FixedUpdate()
+    private IEnumerator ChaseRoutine()
     {
-        // 현재 상태가 Alive가 아니거나 / TakeHit 애니메이션이 진행중일 때 return
-        if (!isAlive || anim.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
-            return;
+        while (true)
+        {
+            // 현재 상태가 Alive가 아니거나 / TakeHit 애니메이션이 진행중일 때 return
+            if (isAlive || !anim.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
+            {
+                // 몬스터의 x축 값이 플레이어의 x축 값보다 작을 경우 flipX 가 true, 플레이어 방향을 보도록 함
+                render.flipX = target.position.x > rb.position.x;
 
-        Chase();
-    }
-
-    private void LateUpdate()
-    {
-        // 몬스터의 x축 값이 플레이어의 x축 값보다 작을 경우 flipX 가 true, 플레이어 방향을 보도록 함
-        render.flipX = target.position.x > rb.position.x;
-    }
-
-    private void Chase()
-    {
-        // monster에서 player로 가는 방향을 구하고 플레이어의 방향으로 지속적으로 이동
-        Vector2 dirVec = target.position - rb.position;
-        rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
+                // monster에서 player로 가는 방향을 구하고 플레이어의 방향으로 지속적으로 이동
+                Vector2 dirVec = target.position - rb.position;
+                rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
+            }
+            yield return null;
+        }
     }
 
     public void TakeHit(float damage, float interval)
@@ -91,6 +88,7 @@ public class MonsterController : MonoBehaviour
         {
             TakeHit(GameManager.Data.bulletData.Items[0].damage, 
                 GameManager.Data.bulletData.Items[0].interval);
+            collision.gameObject.SetActive(false);
         }
         if (collision.CompareTag("Electricity"))
         {
