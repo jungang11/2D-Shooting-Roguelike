@@ -35,27 +35,31 @@ public class CloseWeapon : Weapon
     {
         while (true)
         {
-            Vector3 rotVec = Vector3.forward * 360 / count;
-
-            damage = swordData.Items[0].damage * GameManager.Data.currentPlayerData.damage;
-            speed = swordData.Items[0].speed;
-            count = swordData.Items[0].count;
-
-            // Sword
-            for (int i = 0; i < count; i++)
+            if (GameManager.Data.swordData.Items[0].currentLevel > 0)
             {
-                if (closeWeapons[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
-                    continue;
+                Vector3 rotVec = Vector3.forward * 360 / count;
 
-                closeWeapons[i].gameObject.SetActive(true);
-                closeWeapons[i].GetComponent<NormalSword>().Setting(damage, -1);
-                closeWeapons[i].transform.SetParent(transform);
-                
-                closeWeapons[i].transform.Rotate(rotVec);
-                closeWeapons[i].transform.Translate(closeWeapons[i].transform.up * 3f, Space.World);
+                damage = swordData.Items[0].damage * GameManager.Data.currentPlayerData.damage;
+                speed = swordData.Items[0].speed;
+                count = swordData.Items[0].count;
+
+                // Sword
+                for (int i = 0; i < count; i++)
+                {
+                    if (closeWeapons[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                        continue;
+
+                    closeWeapons[i].gameObject.SetActive(true);
+                    closeWeapons[i].GetComponent<NormalSword>().Setting(damage, -1);
+                    closeWeapons[i].transform.SetParent(transform);
+
+                    closeWeapons[i].transform.Rotate(rotVec);
+                    closeWeapons[i].transform.Translate(closeWeapons[i].transform.up * 3f, Space.World);
+                }
+
+                transform.Rotate(Vector3.back * speed * Time.deltaTime);
+                yield return null;
             }
-
-            transform.Rotate(Vector3.back * speed * Time.deltaTime);
             yield return null;
         }
     }

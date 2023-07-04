@@ -31,8 +31,9 @@ public class ItemData : ScriptableObject
         public float damage;            // 공격력
         public float cooldown;          // 쿨타임
         public float duration;          // 공격 지속 시간 (발사체 유지 시간)
+        public float interval;          // 공격 간격 (Stay시 너무 많은 공격 방지)
 
-        public int count;             // 갯수
+        public int count;               // 갯수
         public float size;              // 크기
         public float speed;             // 속도
         public float pierce;            // 관통 횟수

@@ -9,6 +9,8 @@ public class DataManager : MonoBehaviour
     public PlayerData basePlayerData;
     public PlayerData currentPlayerData;
 
+    public Weapon weapon;
+
     public ItemData swordData;
     public ItemData bulletData;
     public ItemData electricityData;
@@ -42,6 +44,7 @@ public class DataManager : MonoBehaviour
         }
     }
 
+    #region WeaponLevelUP
     public void SwordLevelUP()
     {
         swordData.Items[0].currentLevel++;
@@ -72,4 +75,22 @@ public class DataManager : MonoBehaviour
         fireData.Items[0].currentLevel++;
         fireData.Items[0].damage += fireData.Items[0].damages[fireData.Items[0].currentLevel];
     }
+    #endregion
+
+    #region Passive
+    public void ArmorLevelUP()
+    {
+        currentPlayerData.armor += 0.5f;
+    }
+
+    public void MovementSpeedLevelUP()
+    {
+        currentPlayerData.movementSpeed += 1f;
+    }
+
+    public void DamageLevelUP()
+    {
+        currentPlayerData.damage += 0.5f;
+    }
+    #endregion
 }

@@ -19,8 +19,8 @@ public class MonsterController : MonoBehaviour
     private SpriteRenderer render;
     private Animator anim;
 
-    private float hp;
-    private float maxHp = 10f;
+    public float hp;
+    private float maxHp = 20f;
     private bool isAlive;
     public bool IsAlive { get { return isAlive; } }
 
@@ -66,16 +66,7 @@ public class MonsterController : MonoBehaviour
         rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 
-
-    IEnumerator TakeHitRoutine()
-    {
-        Vector3 dirVec = transform.position - target.transform.position;    // 플레이어 기준의 반대 방향
-        rb.AddForce(dirVec.normalized * 4f, ForceMode2D.Force);   // 플레이어의 반대 방향으로 넉백
-
-        yield return null;
-    }
-
-    public void TakeHit(float damage)
+    public void TakeHit(float damage, float interval)
     {
         anim.SetTrigger("TakeHit");
         hitDamage.PrintDamage(damage);
@@ -89,7 +80,8 @@ public class MonsterController : MonoBehaviour
         }
         else
         {
-            StartCoroutine(TakeHitRoutine());
+            Vector3 dirVec = transform.position - target.transform.position;    // 플레이어 기준의 반대 방향
+            rb.AddForce(dirVec.normalized * 3f, ForceMode2D.Force);   // 플레이어의 반대 방향으로 넉백
         }
     }
 
@@ -97,15 +89,18 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.CompareTag("Bullet"))
         {
-            TakeHit(GameManager.Data.bulletData.Items[0].damage);
+            TakeHit(GameManager.Data.bulletData.Items[0].damage, 
+                GameManager.Data.bulletData.Items[0].interval);
         }
         if (collision.CompareTag("Electricity"))
         {
-            TakeHit(GameManager.Data.electricityData.Items[0].damage);
+            TakeHit(GameManager.Data.electricityData.Items[0].damage, 
+                GameManager.Data.electricityData.Items[0].interval);
         }
         if (collision.CompareTag("Explosion"))
         {
-            TakeHit(GameManager.Data.explosionData.Items[0].damage);
+            TakeHit(GameManager.Data.explosionData.Items[0].damage
+                , GameManager.Data.explosionData.Items[0].interval);
         }
     }
 
@@ -113,11 +108,13 @@ public class MonsterController : MonoBehaviour
     {
         if (collision.CompareTag("Fire"))
         {
-            TakeHit(GameManager.Data.fireData.Items[0].damage);
+            TakeHit(GameManager.Data.fireData.Items[0].damage,
+                GameManager.Data.fireData.Items[0].interval);
         }
         if (collision.gameObject.CompareTag("CloseWeapon"))
         {
-            TakeHit(GameManager.Data.swordData.Items[0].damage);
+            TakeHit(GameManager.Data.swordData.Items[0].damage,
+                GameManager.Data.swordData.Items[0].interval);
         }
     }
 

@@ -23,14 +23,6 @@ public class ElectricityHolder : RangedWeapon
             electricities[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
         }
 
-        if (GameManager.Data.electricityData.Items[0].currentLevel > 0)
-        {
-            StartCoroutine(ElectricityRoutine());
-        }
-    }
-
-    public void Init()
-    {
         StartCoroutine(ElectricityRoutine());
     }
 
@@ -38,27 +30,31 @@ public class ElectricityHolder : RangedWeapon
     {
         while (true)
         {
-            // 가까운 적이 없을경우 null 반환
-            if (player.scanner.nearestEnemy != null)
+            if (GameManager.Data.electricityData.Items[0].currentLevel > 0)
             {
-                // 가장 가까운 적의 위치 구하기
-                targetPoint = player.scanner.nearestEnemy.position;
-                dirVec = (targetPoint - transform.position).normalized;
-
-                for (int i = 0; i < poolSize; i++)
+                // 가까운 적이 없을경우 null 반환
+                if (player.scanner.nearestEnemy != null)
                 {
-                    if (electricities[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
-                        continue;
+                    // 가장 가까운 적의 위치 구하기
+                    targetPoint = player.scanner.nearestEnemy.position;
+                    dirVec = (targetPoint - transform.position).normalized;
 
-                    Vector3 spawnPos = transform.position;
-                    electricities[i].transform.position = spawnPos;
-                    electricities[i].gameObject.SetActive(true);
-                    electricities[i].GetComponent<Electricity>().Init(dirVec);
+                    for (int i = 0; i < poolSize; i++)
+                    {
+                        if (electricities[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                            continue;
 
-                    break;
+                        Vector3 spawnPos = transform.position;
+                        electricities[i].transform.position = spawnPos;
+                        electricities[i].gameObject.SetActive(true);
+                        electricities[i].GetComponent<Electricity>().Init(dirVec);
+
+                        break;
+                    }
+                    // 총알 발사 딜레이
+                    yield return new WaitForSeconds(GameManager.Data.electricityData.Items[0].cooldown);
                 }
-                // 총알 발사 딜레이
-                yield return new WaitForSeconds(GameManager.Data.electricityData.Items[0].cooldown);
+                yield return null;
             }
             yield return null;
         }

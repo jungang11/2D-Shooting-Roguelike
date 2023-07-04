@@ -34,6 +34,7 @@ MonoBehaviour:
     damage: 0.5
     cooldown: 0
     duration: 0
+    interval: 0.3
     count: 3
     size: 0
     speed: 200

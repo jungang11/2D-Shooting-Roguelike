@@ -28,9 +28,9 @@ MonoBehaviour:
     - 1
     - 1
     baseCount: 1
-    counts: []
-    currentLevel: 1
-    maxLevel: 6
+    counts: 
+    currentLevel: 0
+    maxLevel: 20
     damage: 0
     cooldown: 0
     duration: 0

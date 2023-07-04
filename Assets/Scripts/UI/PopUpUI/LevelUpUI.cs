@@ -51,7 +51,7 @@ public class LevelUpUI : PopUpUI
             case 0: // 기본 검 선택
                 items[index].level++;
                 GameManager.Data.SwordLevelUP();
-                Debug.Log($"검 강화 검 레벨{GameManager.Data.swordData.Items[0].currentLevel}");
+                Debug.Log("검 강화");
                 break;
             case 1: // 총알 선택
                 items[index].level++;
@@ -75,25 +75,24 @@ public class LevelUpUI : PopUpUI
                 break;
             case 5: // 방어력 선택
                 items[index].level++;
-                playerData.armor += 0.5f;
+                GameManager.Data.ArmorLevelUP();
                 Debug.Log("방어력 증가");
                 break;
             case 6: // 이동속도 선택
                 items[index].level++;
-                playerData.movementSpeed += 2f;
+                GameManager.Data.MovementSpeedLevelUP();
                 Debug.Log("이동속도 증가");
                 break;
             case 7: // 공격력 선택
                 items[index].level++;
-                playerData.damage += 2f;
+                GameManager.Data.DamageLevelUP();
                 Debug.Log("공격력 증가");
                 break;
             case 8: // 회복 아이템 (만렙)
-                playerData.hp += 5f;
+                GameManager.Data.currentPlayerData.hp += 5f;
                 Debug.Log("회복");
                 break;
         }
-
         // 선택 후 UI 닫기
         GameManager.UI.ClosePopUpUI();
     }

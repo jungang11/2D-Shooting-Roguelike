@@ -28,12 +28,13 @@ MonoBehaviour:
     - 5
     - 5
     baseCount: 1
-    counts: []
-    currentLevel: 1
+    counts: 
+    currentLevel: 0
     maxLevel: 6
     damage: 1
     cooldown: 0.4
     duration: 2
+    interval: 0.1
     count: 1
     size: 1
     speed: 10

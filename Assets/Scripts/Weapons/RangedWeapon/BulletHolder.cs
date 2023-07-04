@@ -23,12 +23,6 @@ public class BulletHolder : RangedWeapon
             bullets[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
         }
 
-        if (GameManager.Data.bulletData.Items[0].currentLevel > 0)
-            StartCoroutine(BulletRoutine());
-    }
-
-    public void Init()
-    {
         StartCoroutine(BulletRoutine());
     }
 
@@ -36,28 +30,32 @@ public class BulletHolder : RangedWeapon
     {
         while (true)
         {
-            // 가까운 적이 없을경우 null 반환
-            if (player.scanner.nearestEnemy != null)
+            if (GameManager.Data.bulletData.Items[0].currentLevel > 0)
             {
-                // 가장 가까운 적의 위치 구하기
-                targetPoint = player.scanner.nearestEnemy.position;
-                dirVec = (targetPoint - transform.position).normalized;
-
-                for (int i = 0; i < poolSize; i++)
+                // 가까운 적이 없을경우 null 반환
+                if (player.scanner.nearestEnemy != null)
                 {
-                    if (bullets[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
-                        continue;
+                    // 가장 가까운 적의 위치 구하기
+                    targetPoint = player.scanner.nearestEnemy.position;
+                    dirVec = (targetPoint - transform.position).normalized;
 
-                    // 총알의 위치를 spawnPos로 설정 후 활성화 및 데이터 설정
-                    Vector3 spawnPos = transform.position;
-                    bullets[i].transform.position = spawnPos;
-                    bullets[i].gameObject.SetActive(true);
-                    bullets[i].GetComponent<Bullet>().Init(dirVec);
+                    for (int i = 0; i < poolSize; i++)
+                    {
+                        if (bullets[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                            continue;
 
-                    break;
+                        // 총알의 위치를 spawnPos로 설정 후 활성화 및 데이터 설정
+                        Vector3 spawnPos = transform.position;
+                        bullets[i].transform.position = spawnPos;
+                        bullets[i].gameObject.SetActive(true);
+                        bullets[i].GetComponent<Bullet>().Init(dirVec);
+
+                        break;
+                    }
+                    // 총알 발사 딜레이
+                    yield return new WaitForSeconds(GameManager.Data.bulletData.Items[0].cooldown);
                 }
-                // 총알 발사 딜레이
-                yield return new WaitForSeconds(GameManager.Data.bulletData.Items[0].cooldown);
+                yield return null;
             }
             yield return null;
         }

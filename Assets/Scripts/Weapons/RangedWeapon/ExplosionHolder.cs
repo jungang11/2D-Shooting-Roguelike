@@ -32,14 +32,6 @@ public class ExplosionHolder : RangedWeapon
             fires[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
         }
 
-        if (GameManager.Data.explosionData.Items[0].currentLevel > 0)
-        {
-            StartCoroutine(ExplosionRoutine());
-        }
-    }
-
-    public void Init()
-    {
         StartCoroutine(ExplosionRoutine());
     }
 
@@ -47,30 +39,33 @@ public class ExplosionHolder : RangedWeapon
     {
         while (true)
         {
-            // 가까운 적이 없을경우 null 반환
-            if (player.scanner.nearestEnemy != null)
+            if (GameManager.Data.explosionData.Items[0].currentLevel > 0)
             {
-                Vector3 targetPoint = player.scanner.nearestEnemy.position;
-
-                for (int i = 0; i < poolSize; i++)
+                // 가까운 적이 없을경우 null 반환
+                if (player.scanner.nearestEnemy != null)
                 {
-                    if (explosions[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
-                        continue;
+                    Vector3 targetPoint = player.scanner.nearestEnemy.position;
 
-                    explosions[i].transform.position = targetPoint;
-                    explosions[i].gameObject.SetActive(true);
-                    explosions[i].GetComponent<Explosion>().Init();
+                    for (int i = 0; i < poolSize; i++)
+                    {
+                        if (explosions[i].gameObject.activeSelf == true) // 이미 setActive가 true 일 경우 넘어감
+                            continue;
 
-                    yield return new WaitForSeconds(playerData.duration * GameManager.Data.explosionData.Items[0].duration);
+                        explosions[i].transform.position = targetPoint;
+                        explosions[i].gameObject.SetActive(true);
+                        explosions[i].GetComponent<Explosion>().Init();
 
-                    fires[i].transform.position = targetPoint;
-                    fires[i].gameObject.SetActive(true);
-                    fires[i].GetComponent<Fire>().Init();
+                        yield return new WaitForSeconds(playerData.duration * GameManager.Data.explosionData.Items[0].duration);
 
-                    break;
+                        fires[i].transform.position = targetPoint;
+                        fires[i].gameObject.SetActive(true);
+                        fires[i].GetComponent<Fire>().Init();
+                        break;
+                    }
+                    // 폭발 딜레이
+                    yield return new WaitForSeconds(GameManager.Data.explosionData.Items[0].cooldown);
                 }
-                // 폭발 딜레이
-                yield return new WaitForSeconds(GameManager.Data.explosionData.Items[0].cooldown);
+                yield return null;
             }
             yield return null;
         }

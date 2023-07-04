@@ -30,9 +30,13 @@ public class Fire : MonoBehaviour
 
     IEnumerator FireRoutine()
     {
-        yield return new WaitForSeconds(fireData.Items[0].duration * playerData.duration);
-        gameObject.SetActive(false);
+        if (GameManager.Data.fireData.Items[0].currentLevel > 0)
+        {
+            yield return new WaitForSeconds(fireData.Items[0].duration * playerData.duration);
+            gameObject.SetActive(false);
 
+            yield return null;
+        }
         yield return null;
     }
 }
