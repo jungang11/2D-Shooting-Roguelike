@@ -55,22 +55,22 @@ public class LevelUpUI : PopUpUI
                 break;
             case 1: // 총알 선택
                 items[index].level++;
-                GameManager.Data.bulletData.Items[0].currentLevel++;
+                GameManager.Data.BulletLevelUP();
                 Debug.Log("총알 강화");
                 break;
             case 2: // 전기 선택
                 items[index].level++;
-                GameManager.Data.electricityData.Items[0].currentLevel++;
+                GameManager.Data.ElectricityLevelUP();
                 Debug.Log("전기 강화");
                 break;
             case 3: // 폭발 선택
                 items[index].level++;
-                GameManager.Data.explosionData.Items[0].currentLevel++;
+                GameManager.Data.ExplosionLevelUP();
                 Debug.Log("폭발 강화");
                 break;
             case 4: // 불길 선택
                 items[index].level++;
-                GameManager.Data.fireData.Items[0].currentLevel++;
+                GameManager.Data.FireLevelUP();
                 Debug.Log("불길 강화");
                 break;
             case 5: // 방어력 선택

@@ -24,12 +24,12 @@ public class ExplosionHolder : RangedWeapon
             explosions.Add(GameManager.Pool.Get(explosionPrefab));
             explosions[i].name = "Explosion " + i;
             explosions[i].gameObject.SetActive(false);
-            explosions[i].transform.SetParent(transform);
+            explosions[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
 
             fires.Add(GameManager.Pool.Get(firePrefab));
             fires[i].name = "Fire " + i;
             fires[i].gameObject.SetActive(false);
-            fires[i].transform.SetParent(transform);
+            fires[i].transform.SetParent(GameManager.Pool.poolRoot.transform);
         }
 
         if (GameManager.Data.explosionData.Items[0].currentLevel > 0)

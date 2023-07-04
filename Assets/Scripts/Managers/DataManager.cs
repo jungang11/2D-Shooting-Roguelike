@@ -48,4 +48,28 @@ public class DataManager : MonoBehaviour
         swordData.Items[0].damage += swordData.Items[0].damages[swordData.Items[0].currentLevel];
         swordData.Items[0].count += swordData.Items[0].counts[swordData.Items[0].currentLevel];
     }
+
+    public void BulletLevelUP()
+    {
+        bulletData.Items[0].currentLevel++;
+        bulletData.Items[0].damage += bulletData.Items[0].damages[bulletData.Items[0].currentLevel];
+    }
+
+    public void ElectricityLevelUP()
+    {
+        electricityData.Items[0].currentLevel++;
+        electricityData.Items[0].damage += electricityData.Items[0].damages[electricityData.Items[0].currentLevel];
+    }
+
+    public void ExplosionLevelUP()
+    {
+        explosionData.Items[0].currentLevel++;
+        explosionData.Items[0].damage += explosionData.Items[0].damages[explosionData.Items[0].currentLevel];
+    }
+
+    public void FireLevelUP()
+    {
+        fireData.Items[0].currentLevel++;
+        fireData.Items[0].damage += fireData.Items[0].damages[fireData.Items[0].currentLevel];
+    }
 }
