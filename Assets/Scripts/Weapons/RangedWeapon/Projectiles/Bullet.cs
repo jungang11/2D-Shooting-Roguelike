@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour
     {
         while (true)
         {
+            // 날아가는 도중에 업그레이드 하면 그 상태에서도 데미지와 스피드가 반영되도록 함
             damage = bulletData.Items[0].damage * playerData.damage;
             speed = bulletData.Items[0].speed * playerData.projectileSpeed;
 

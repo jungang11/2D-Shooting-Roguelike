@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
@@ -14,7 +15,6 @@ public class MonsterController : MonoBehaviour
     
     private Rigidbody2D rb;
     private Rigidbody2D target;
-
     private Collider2D col;
     private SpriteRenderer render;
     private Animator anim;

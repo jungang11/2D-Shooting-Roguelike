@@ -13,6 +13,7 @@ public class HitDamage : MonoBehaviour
     private void OnEnable()
     {
         damageText.text = "";
+        damageText.fontSize = 0.6f;
     }
 
     public void PrintDamage(float damage)

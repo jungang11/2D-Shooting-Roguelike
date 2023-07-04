@@ -28,6 +28,7 @@ public class CloseWeapon : Weapon
             closeWeapons[i].gameObject.SetActive(false);
             closeWeapons[i].transform.SetParent(transform);
         }
+
         StartCoroutine(RotateRoutine());
     }
 
