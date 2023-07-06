@@ -1,8 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
-using UnityEditor.Tilemaps;
 using UnityEngine;
 
 public class MonsterController : MonoBehaviour
@@ -39,6 +35,12 @@ public class MonsterController : MonoBehaviour
         StartCoroutine(ChaseRoutine());
     }
 
+    private void OnDisable()
+    {
+        StopCoroutine(ChaseRoutine());
+        GameManager.Pool.Release(gameObject);
+    }
+
     public void Init()
     {
         isAlive = true;
@@ -58,6 +60,10 @@ public class MonsterController : MonoBehaviour
                 // monster에서 player로 가는 방향을 구하고 플레이어의 방향으로 지속적으로 이동
                 Vector2 dirVec = target.position - rb.position;
                 rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
+            }
+            if(GameManager.Data.currentPlayerData.hp < 0)
+            {
+                gameObject.SetActive(false);
             }
             yield return null;
         }

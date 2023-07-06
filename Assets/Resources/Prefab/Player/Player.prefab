@@ -457,11 +457,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5673f31fb1629594681b80f5a393dab4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolSize: 0
+  poolSize: 12
   damage: 0.5
   count: 2
   speed: 3
   closeWeaponPrefab: {fileID: 3401954596367544282, guid: 8993fb0aaddc50446822829052869eb3, type: 3}
+  closeWeapons: []
   swordData: {fileID: 0}
 --- !u!1 &1951175191250887372
 GameObject:
@@ -765,9 +766,6 @@ MonoBehaviour:
   hp: 20
   scanner: {fileID: 0}
   OnChangedHP:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDied:
     m_PersistentCalls:
       m_Calls: []
   moveSpeed: 5

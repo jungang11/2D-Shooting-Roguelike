@@ -1,15 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     private EventSystem eventSystem;
 
+    public Canvas canvasRoot;
     private Canvas popUpCanvas;
     private Stack<PopUpUI> popUpStack;
     public Stack<PopUpUI> popUp_Stack { get { return popUpStack; } }
@@ -21,8 +18,12 @@ public class UIManager : MonoBehaviour
         // 씬 변경시에도 EventSystem이 유지되도록 UIManager의 하위 자식으로 설정
         eventSystem.transform.SetParent(transform);
 
+        canvasRoot = GameManager.Resource.Instantiate<Canvas>("Prefab/UI/Canvas");
+        canvasRoot.transform.SetParent(transform);
+
         popUpCanvas = GameManager.Resource.Instantiate<Canvas>("Prefab/UI/Canvas");
         popUpCanvas.gameObject.name = "PopUpCanvas";
+        popUpCanvas.transform.SetParent(transform);
         popUpCanvas.sortingOrder = 100;
         popUpStack = new Stack<PopUpUI>();
     }

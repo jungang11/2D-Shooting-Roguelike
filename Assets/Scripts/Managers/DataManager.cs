@@ -21,6 +21,12 @@ public class DataManager : MonoBehaviour
     {
         // 원본 Scriptabel Object
         basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
+
+        Init();
+    }
+
+    public void Init()
+    {
         // Scriptable Object Clone 사용
         currentPlayerData = GameManager.Resource.Instantiate<PlayerData>("Data/PlayerData", transform);
 

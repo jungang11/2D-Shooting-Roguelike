@@ -13,6 +13,7 @@ TagManager:
   - Electricity
   - Explosion
   - Bullet
+  - poolRoot
   layers:
   - Default
   - TransparentFX

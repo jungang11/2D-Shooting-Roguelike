@@ -51,11 +51,6 @@ public class GameManager : MonoBehaviour
         resourceObj.transform.parent = transform;
         resourceManager = resourceObj.AddComponent<ResourceManager>();
 
-        GameObject poolObj = new GameObject();
-        poolObj.name = "PoolManager";
-        poolObj.transform.parent = transform;
-        poolManager = poolObj.AddComponent<PoolManager>();
-
         GameObject dataObj = new GameObject();
         dataObj.name = "DataManager";
         dataObj.transform.parent = transform;
@@ -70,5 +65,10 @@ public class GameManager : MonoBehaviour
         sceneObj.name = "SceneManager";
         sceneObj.transform.parent = transform;
         sceneManager = sceneObj.AddComponent<SceneManager>();
+
+        GameObject poolObj = new GameObject();
+        poolObj.name = "PoolManager";
+        poolObj.transform.parent = transform;
+        poolManager = poolObj.AddComponent<PoolManager>();
     }
 }

@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public float HP { get { return hp; } private set { hp = value; OnChangedHP?.Invoke(hp); } }
 
     public UnityEvent<float> OnChangedHP;
-    public UnityEvent OnDied;
 
     public float moveSpeed;
 
@@ -31,6 +30,11 @@ public class PlayerController : MonoBehaviour
         render = GetComponent<SpriteRenderer>();
         scanner = GetComponent<MonsterScan>();
         playerData = GameManager.Data.currentPlayerData;
+    }
+
+    private void OnEnable()
+    {
+        hp = GameManager.Data.basePlayerData.hp;
     }
 
     private void FixedUpdate()
@@ -69,9 +73,14 @@ public class PlayerController : MonoBehaviour
 
         if (hp <= 0)
         {
-            OnDied?.Invoke();
-            GameManager.Resource.Destroy(gameObject);
-            Time.timeScale = 0f;
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 0f;
+        GameManager.UI.ShowPopUpUI<PopUpUI>("Prefab/UI/DeadPopUpUI");
     }
 }

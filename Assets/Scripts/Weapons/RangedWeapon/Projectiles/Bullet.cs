@@ -22,7 +22,6 @@ public class Bullet : MonoBehaviour
     // 발사 목표 지점, 데미지, 스피드 설정
     public void Init(Vector3 dirVec)
     {
-        
         StartCoroutine(BulletRoutine(dirVec));
     }
 

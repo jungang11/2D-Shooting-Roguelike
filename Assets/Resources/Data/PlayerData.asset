@@ -18,15 +18,15 @@ MonoBehaviour:
   nextExp: 10
   hp: 30
   hpRecovery: 0
-  armor: 1
-  movementSpeed: 4
+  armor: 0.5
+  movementSpeed: 3
   damage: 1
   criticalRate: 1
   criticalMultiplier: 2
-  area: 5
+  area: 6
   projectileSpeed: 1
   duration: 1
-  coolTime: 2
+  coolTime: 1
   magnet: 0
   luck: 0
   expMultiplier: 1

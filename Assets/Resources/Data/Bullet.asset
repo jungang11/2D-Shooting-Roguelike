@@ -28,8 +28,8 @@ MonoBehaviour:
     - 5
     - 5
     baseCount: 1
-    counts: 01000000010000000100000001000000010000000100000001000000
-    currentLevel: 0
+    counts: 01000000010000000100000001000000020000000200000002000000
+    currentLevel: 4
     maxLevel: 6
     damage: 1
     cooldown: 0.4

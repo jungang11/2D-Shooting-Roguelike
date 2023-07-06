@@ -9,13 +9,15 @@ public class PausePopUpUI : PopUpUI
         base.Awake();
 
         buttons["ContinueButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
-        buttons["OptionButton"].onClick.AddListener(() => { GameManager.UI.ShowPopUpUI<PopUpUI>("Prefab/UI/OptionPopUpUI"); });
+        buttons["OptionButton"].onClick.AddListener(() => { GameManager.UI.ShowPopUpUI<PopUpUI>("Prefab/UI/TitleSettingPopUp"); });
         buttons["ExitButton"].onClick.AddListener(() => { GoTitleScene(); });
     }
 
     public void GoTitleScene()
     {
+        GameManager.UI.ClosePopUpUI();
         GameManager.Scene.LoadScene("TitleScene");
+
         Time.timeScale = 1.0f;
     }
 }

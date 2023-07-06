@@ -9,14 +9,17 @@ public class PoolManager : MonoBehaviour
     Dictionary<string, ObjectPool<GameObject>> poolDic;
     Dictionary<string, Transform> poolContainer;
     public Transform poolRoot;
-    Canvas canvasRoot;
 
     private void Awake()
+    {
+        Init();
+    }
+
+    public void Init()
     {
         poolDic = new Dictionary<string, ObjectPool<GameObject>>();
         poolContainer = new Dictionary<string, Transform>();
         poolRoot = new GameObject("PoolRoot").transform;
-        canvasRoot = GameManager.Resource.Instantiate<Canvas>("Prefab/UI/Canvas");
     }
 
     // 20~162 Object, Component용 Pool Script
@@ -272,7 +275,7 @@ public class PoolManager : MonoBehaviour
             {
                 obj.gameObject.SetActive(false);
                 // 수정 사항 -> 위치 오류 방지 위해 Canvas -> Canvas 이동
-                obj.transform.SetParent(canvasRoot.transform, false);
+                obj.transform.SetParent(GameManager.UI.canvasRoot.transform, false);
             },
             actionOnDestroy: (GameObject obj) =>
             {
