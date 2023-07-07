@@ -19,6 +19,7 @@ public class MonsterController : MonoBehaviour
     private float maxHp = 20f;
     private bool isAlive;
     public bool IsAlive { get { return isAlive; } }
+    public bool isPrintDamage;
 
     private void Awake()
     {
@@ -72,7 +73,9 @@ public class MonsterController : MonoBehaviour
     public void TakeHit(float damage, float interval)
     {
         anim.SetTrigger("TakeHit");
-        hitDamage.PrintDamage(damage);
+
+        if(GameManager.Data.isPrintDamage)
+            hitDamage.PrintDamage(damage);
 
         hp -= damage;
         if (hp < 0)

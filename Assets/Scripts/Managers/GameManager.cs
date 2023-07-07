@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private static DataManager dataManager;
     private static UIManager uiManager;
     private static SceneManager sceneManager;
+    private static SoundManager soundManager;
 
     public static PlayerController playerController;
 
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
     public static DataManager Data { get { return dataManager; } }
     public static UIManager UI { get { return uiManager; } }
     public static SceneManager Scene { get { return sceneManager; } }
+    public static SoundManager Sound { get { return soundManager; } }
 
     public float gameTime = 0;
     public float maxGameTime = 300;
@@ -70,5 +72,13 @@ public class GameManager : MonoBehaviour
         poolObj.name = "PoolManager";
         poolObj.transform.parent = transform;
         poolManager = poolObj.AddComponent<PoolManager>();
+
+        /*GameObject soundObj = new GameObject();
+        soundObj.name = "SoundManager";
+        soundObj.transform.parent = transform;
+        soundManager = soundObj.AddComponent<SoundManager>();*/
+
+        soundManager = Resource.Instantiate<SoundManager>("Prefab/BGM/SoundManager");
+        soundManager.transform.SetParent(transform);
     }
 }

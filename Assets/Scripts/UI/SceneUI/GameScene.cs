@@ -17,6 +17,10 @@ public class GameScene : BaseScene
         GameManager.Pool.Init();
         yield return new WaitForSeconds(0.3f);
 
+        progress = 0.1f;
+        GameManager.Sound.Init();
+        yield return new WaitForSeconds(0.3f);
+
         progress = 0.3f;
         GameManager.Data.Init();
         yield return new WaitForSeconds(0.3f);

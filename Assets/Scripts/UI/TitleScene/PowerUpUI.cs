@@ -46,7 +46,7 @@ public class PowerUpUI : PopUpUI
             case 4: // AttackSpeed (Cooldown)
                 //basePlayerData.coolTime += 0.2f;
                 currentPlayerData.coolTime += 0.2f;
-                texts["Item4NameText"].text = $"쿨타임 {basePlayerData.coolTime}";
+                texts["Item4NameText"].text = $"공격속도 {basePlayerData.coolTime}";
                 break;
             case 5: // MaxHp
                 //basePlayerData.hp += 0.5f;

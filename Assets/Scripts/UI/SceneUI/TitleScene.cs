@@ -12,6 +12,10 @@ public class TitleScene : BaseScene
 
     protected override IEnumerator LoadingRoutine()
     {
-        yield return null;
+        progress = 0.1f;
+        GameManager.Sound.Init();
+        yield return new WaitForSeconds(0.3f);
+
+        progress = 1.0f;
     }
 }

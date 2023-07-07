@@ -17,10 +17,19 @@ public class DataManager : MonoBehaviour
     public ItemData explosionData;
     public ItemData fireData;
 
+    public TitleSettingUI titleSettingUI;
+
+    public float volume;
+    public bool isMute;
+    public bool isPrintDamage;
+
     private void Awake()
     {
         // ¿øº» Scriptabel Object
         basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
+        volume = 0.5f;
+        isMute = false;
+        isPrintDamage = true;
 
         Init();
     }
