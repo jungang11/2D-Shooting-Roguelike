@@ -9,6 +9,6 @@ public class ExitPopUpUI : PopUpUI
         base.Awake();
 
         buttons["CancelButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
-        buttons["ExitButton"].onClick.AddListener(() => { GameManager.UI.ClosePopUpUI(); });
+        buttons["ExitButton"].onClick.AddListener(() => { Application.Quit(); });
     }
 }

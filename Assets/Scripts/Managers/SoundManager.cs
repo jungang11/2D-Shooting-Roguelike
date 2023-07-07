@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
 
     public AudioSource bgmSound;
     public AudioClip[] bgmList;
+    public AudioClip[] audioList;
 
     public BaseScene curScene;
 
@@ -20,10 +21,10 @@ public class SoundManager : MonoBehaviour
 
     public void Init()
     {
-        StartCoroutine(OnSceneLoadedRoutine());
+        StartCoroutine(OnSceneLoadedBGMRoutine());
     }
 
-    private IEnumerator OnSceneLoadedRoutine()
+    private IEnumerator OnSceneLoadedBGMRoutine()
     {
         curScene = GameManager.Scene.CurScene;
 
@@ -57,6 +58,16 @@ public class SoundManager : MonoBehaviour
             {
                 bgmSound.volume = GameManager.Data.volume;
             }
+            yield return null;
+        }
+    }
+
+    public IEnumerator SoundEffectRoutine()
+    {
+        while (true)
+        {
+            
+
             yield return null;
         }
     }

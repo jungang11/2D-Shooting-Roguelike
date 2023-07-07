@@ -73,11 +73,6 @@ public class GameManager : MonoBehaviour
         poolObj.transform.parent = transform;
         poolManager = poolObj.AddComponent<PoolManager>();
 
-        /*GameObject soundObj = new GameObject();
-        soundObj.name = "SoundManager";
-        soundObj.transform.parent = transform;
-        soundManager = soundObj.AddComponent<SoundManager>();*/
-
         soundManager = Resource.Instantiate<SoundManager>("Prefab/BGM/SoundManager");
         soundManager.transform.SetParent(transform);
     }

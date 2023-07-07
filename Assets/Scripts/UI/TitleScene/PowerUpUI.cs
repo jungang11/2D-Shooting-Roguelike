@@ -6,7 +6,6 @@ public class PowerUpUI : PopUpUI
 {
     public PlayerData basePlayerData;
     public PlayerData currentPlayerData;
-    private int level;
 
     protected override void Awake()
     {
@@ -29,34 +28,34 @@ public class PowerUpUI : PopUpUI
         switch (index)
         {
             case 1: // Damage
-                //basePlayerData.damage += 0.5f;
+                basePlayerData.damage += 0.5f;
                 currentPlayerData.damage += 0.5f;
-                texts["Item1NameText"].text = $"공격력 {basePlayerData.damage}";
+                texts["Item1NameText"].text = $"공격력 {currentPlayerData.damage}";
                 break;
             case 2: // Armor
-                //basePlayerData.armor += 0.2f;
+                basePlayerData.armor += 0.2f;
                 currentPlayerData.armor += 0.2f;
-                texts["Item2NameText"].text = $"방어력 {basePlayerData.armor}";
+                texts["Item2NameText"].text = $"방어력 {currentPlayerData.armor}";
                 break;
             case 3: // Speed
-                //basePlayerData.movementSpeed += 0.2f;
+                basePlayerData.movementSpeed += 0.2f;
                 currentPlayerData.movementSpeed += 0.2f;
-                texts["Item3NameText"].text = $"이동속도 {basePlayerData.movementSpeed}";
+                texts["Item3NameText"].text = $"이동속도 {currentPlayerData.movementSpeed}";
                 break;
             case 4: // AttackSpeed (Cooldown)
-                //basePlayerData.coolTime += 0.2f;
+                basePlayerData.coolTime += 0.2f;
                 currentPlayerData.coolTime += 0.2f;
-                texts["Item4NameText"].text = $"공격속도 {basePlayerData.coolTime}";
+                texts["Item4NameText"].text = $"공격속도 {currentPlayerData.coolTime}";
                 break;
             case 5: // MaxHp
-                //basePlayerData.hp += 0.5f;
+                basePlayerData.hp += 0.5f;
                 currentPlayerData.hp += 0.5f;
-                texts["Item5NameText"].text = $"최대 체력 {basePlayerData.hp}";
+                texts["Item5NameText"].text = $"최대 체력 {currentPlayerData.hp}";
                 break;
             case 6: // Area
-                //basePlayerData.area += 0.5f;
+                basePlayerData.area += 0.5f;
                 currentPlayerData.area += 0.5f;
-                texts["Item6NameText"].text = $"공격범위 {basePlayerData.area}";
+                texts["Item6NameText"].text = $"공격범위 {currentPlayerData.area}";
                 break;
             default:
                 Debug.Log("default");

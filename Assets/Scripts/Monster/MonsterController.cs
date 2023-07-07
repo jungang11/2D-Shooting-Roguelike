@@ -10,7 +10,7 @@ public class MonsterController : MonoBehaviour
     private float moveSpeed = 1f;            // 몬스터 이동속도
     
     private Rigidbody2D rb;
-    private Rigidbody2D target;
+    private Transform target;
     private Collider2D col;
     private SpriteRenderer render;
     private Animator anim;
@@ -27,7 +27,6 @@ public class MonsterController : MonoBehaviour
         col = GetComponent<Collider2D>();
         render = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
     }
 
     private void OnEnable()
@@ -39,7 +38,6 @@ public class MonsterController : MonoBehaviour
     private void OnDisable()
     {
         StopCoroutine(ChaseRoutine());
-        GameManager.Pool.Release(gameObject);
     }
 
     public void Init()
@@ -52,6 +50,8 @@ public class MonsterController : MonoBehaviour
     {
         while (true)
         {
+            target = GameManager.Data.playerPos;
+
             // 현재 상태가 Alive가 아니거나 / TakeHit 애니메이션이 진행중일 때 return
             if (isAlive || !anim.GetCurrentAnimatorStateInfo(0).IsName("TakeHit"))
             {
@@ -59,7 +59,7 @@ public class MonsterController : MonoBehaviour
                 render.flipX = target.position.x > rb.position.x;
 
                 // monster에서 player로 가는 방향을 구하고 플레이어의 방향으로 지속적으로 이동
-                Vector2 dirVec = target.position - rb.position;
+                Vector2 dirVec = (Vector2)target.position - rb.position;
                 rb.MovePosition(rb.position + dirVec.normalized * moveSpeed * Time.fixedDeltaTime);
             }
             if(GameManager.Data.currentPlayerData.hp < 0)

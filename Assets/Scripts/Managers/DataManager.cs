@@ -8,8 +8,7 @@ public class DataManager : MonoBehaviour
 {
     public PlayerData basePlayerData;
     public PlayerData currentPlayerData;
-
-    public Weapon weapon;
+    public Transform playerPos;
 
     public ItemData swordData;
     public ItemData bulletData;
@@ -17,15 +16,13 @@ public class DataManager : MonoBehaviour
     public ItemData explosionData;
     public ItemData fireData;
 
-    public TitleSettingUI titleSettingUI;
-
     public float volume;
     public bool isMute;
     public bool isPrintDamage;
 
     private void Awake()
     {
-        // 원본 Scriptabel Object
+        // 원본 Scriptable Object
         basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
         volume = 0.5f;
         isMute = false;
@@ -37,7 +34,7 @@ public class DataManager : MonoBehaviour
     public void Init()
     {
         // Scriptable Object Clone 사용
-        currentPlayerData = GameManager.Resource.Instantiate<PlayerData>("Data/PlayerData", transform);
+        currentPlayerData = GameManager.Resource.Instantiate<PlayerData>(basePlayerData, transform);
 
         swordData = GameManager.Resource.Instantiate<ItemData>("Data/NormalSword", transform);
         bulletData = GameManager.Resource.Instantiate<ItemData>("Data/Bullet", transform);
