@@ -33,6 +33,8 @@ public class GameTime : MonoBehaviour
             if (gameTime > maxGameTime)
                 gameTime = maxGameTime;
 
+            GameManager.Data.gameTime = gameTime;
+
             int min = (int)gameTime / 60;
             int sec = (int)gameTime % 60;
 

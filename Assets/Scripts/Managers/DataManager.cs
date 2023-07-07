@@ -16,6 +16,7 @@ public class DataManager : MonoBehaviour
     public ItemData explosionData;
     public ItemData fireData;
 
+    public float gameTime;
     public float volume;
     public bool isMute;
     public bool isPrintDamage;
@@ -24,11 +25,16 @@ public class DataManager : MonoBehaviour
     {
         // ¿øº» Scriptable Object
         basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
+
+        SoundSettingInit();
+        Init();
+    }
+
+    public void SoundSettingInit()
+    {
         volume = 0.5f;
         isMute = false;
         isPrintDamage = true;
-
-        Init();
     }
 
     public void Init()

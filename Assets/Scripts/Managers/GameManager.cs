@@ -23,9 +23,6 @@ public class GameManager : MonoBehaviour
     public static SceneManager Scene { get { return sceneManager; } }
     public static SoundManager Sound { get { return soundManager; } }
 
-    public float gameTime = 0;
-    public float maxGameTime = 300;
-
     private void Awake()
     {
         if (instance != null)
@@ -53,6 +50,11 @@ public class GameManager : MonoBehaviour
         resourceObj.transform.parent = transform;
         resourceManager = resourceObj.AddComponent<ResourceManager>();
 
+        GameObject poolObj = new GameObject();
+        poolObj.name = "PoolManager";
+        poolObj.transform.parent = transform;
+        poolManager = poolObj.AddComponent<PoolManager>();
+
         GameObject dataObj = new GameObject();
         dataObj.name = "DataManager";
         dataObj.transform.parent = transform;
@@ -67,11 +69,6 @@ public class GameManager : MonoBehaviour
         sceneObj.name = "SceneManager";
         sceneObj.transform.parent = transform;
         sceneManager = sceneObj.AddComponent<SceneManager>();
-
-        GameObject poolObj = new GameObject();
-        poolObj.name = "PoolManager";
-        poolObj.transform.parent = transform;
-        poolManager = poolObj.AddComponent<PoolManager>();
 
         soundManager = Resource.Instantiate<SoundManager>("Prefab/BGM/SoundManager");
         soundManager.transform.SetParent(transform);

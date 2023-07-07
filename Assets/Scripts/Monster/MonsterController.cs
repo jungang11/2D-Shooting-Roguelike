@@ -16,7 +16,7 @@ public class MonsterController : MonoBehaviour
     private Animator anim;
 
     public float hp;
-    private float maxHp = 20f;
+    private float maxHp;
     private bool isAlive;
     public bool IsAlive { get { return isAlive; } }
     public bool isPrintDamage;
@@ -43,7 +43,8 @@ public class MonsterController : MonoBehaviour
     public void Init()
     {
         isAlive = true;
-        hp = maxHp;
+        // 현재 게임 시간에 비례해서 몬스터의 체력이 증가
+        maxHp = 10f + GameManager.Data.gameTime;
     }
 
     private IEnumerator ChaseRoutine()

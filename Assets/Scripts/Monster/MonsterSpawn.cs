@@ -54,14 +54,6 @@ public class MonsterSpawn : MonoBehaviour
         }
     }
 
-    public void Release()
-    {
-        for(int i=0;i< poolSize; i++)
-            GameManager.Pool.Release(monsters[i]);
-
-        monsters.Clear();
-    }
-
     // SpawnPoint 0~16 까지 중 랜덤으로 위치 받아옴
     private Vector2 GetSpawnPos()
     {

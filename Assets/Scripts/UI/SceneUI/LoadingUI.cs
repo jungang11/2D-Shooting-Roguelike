@@ -5,7 +5,12 @@ using UnityEngine.UI;
 
 public class LoadingUI : MonoBehaviour
 {
-    [SerializeField] Slider slider;
+    private Slider slider;
+
+    private void Awake()
+    {
+        slider = GetComponentInChildren<Slider>();
+    }
 
     public void SetProgress(float progress)
     {

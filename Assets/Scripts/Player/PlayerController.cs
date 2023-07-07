@@ -14,13 +14,11 @@ public class PlayerController : MonoBehaviour
     public MonsterScan scanner;     // 몬스터 스캔
     public Transform playerPos;
 
+    public float moveSpeed;
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
 
     public float HP { get { return hp; } private set { hp = value; OnChangedHP?.Invoke(hp); } }
-
     public UnityEvent<float> OnChangedHP;
-
-    public float moveSpeed;
 
     public PlayerData playerData;
 
