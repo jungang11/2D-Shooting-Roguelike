@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SoundManager : MonoBehaviour
 {
-    public TitleSettingUI settingUI;
-
     public AudioSource bgmSound;
     public AudioClip[] bgmList;
-    public AudioClip[] audioList;
 
     public BaseScene curScene;
 
@@ -58,16 +55,6 @@ public class SoundManager : MonoBehaviour
             {
                 bgmSound.volume = GameManager.Data.volume;
             }
-            yield return null;
-        }
-    }
-
-    public IEnumerator SoundEffectRoutine()
-    {
-        while (true)
-        {
-            
-
             yield return null;
         }
     }

@@ -23,9 +23,6 @@ public class DataManager : MonoBehaviour
 
     private void Awake()
     {
-        // 원본 Scriptable Object
-        basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
-
         SoundSettingInit();
         Init();
     }
@@ -39,6 +36,9 @@ public class DataManager : MonoBehaviour
 
     public void Init()
     {
+        // 원본 Scriptable Object
+        basePlayerData = GameManager.Resource.Load<PlayerData>("Data/PlayerData");
+
         // Scriptable Object Clone 사용
         currentPlayerData = GameManager.Resource.Instantiate<PlayerData>(basePlayerData, transform);
 

@@ -19,6 +19,13 @@ public class PowerUpUI : PopUpUI
         buttons["Item5Button"].onClick.AddListener(() => { ChoiceItem(5); });
         buttons["Item6Button"].onClick.AddListener(() => { ChoiceItem(6); });
 
+        texts["Item1NameText"].text = $"공격력 {currentPlayerData.damage}";
+        texts["Item2NameText"].text = $"방어력 {currentPlayerData.armor}";
+        texts["Item3NameText"].text = $"이동속도 {currentPlayerData.movementSpeed}";
+        texts["Item4NameText"].text = $"공격속도 {currentPlayerData.coolTime}";
+        texts["Item5NameText"].text = $"최대 체력 {currentPlayerData.hp}";
+        texts["Item6NameText"].text = $"공격범위 {currentPlayerData.area}";
+
         basePlayerData = GameManager.Data.basePlayerData;
         currentPlayerData = GameManager.Data.currentPlayerData;
     }
