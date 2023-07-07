@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;          // Animator
     private SpriteRenderer render;  // 캐릭터 flip 변경
     public MonsterScan scanner;     // 몬스터 스캔
+    public Transform playerPos;
 
     private Vector2 inputDir;       // InputSystem 입력받은 Vector2
 
@@ -34,20 +35,34 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        hp = GameManager.Data.basePlayerData.hp;
+        StartCoroutine(PlayerPosRoutine());
+        StartCoroutine(MoveRoutine());   // 지속적인 움직임
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        Move();   // 지속적인 움직임
+        StopCoroutine(MoveRoutine());
+        StopCoroutine(PlayerPosRoutine());
     }
 
-    private void Move()
+    private IEnumerator PlayerPosRoutine()
     {
-        // transform.position 보다 Moveposition이 더 부드럽게 움직임(Rigidbody의 Interpolate 옵션 때문)
-        // transform.position 으로 이동하는 경우 모든 Collider들이 Rigidbody의 위치를 재계산
-        // inputDir을 normalized 하지 않을 경우 대각선 이동이 더 빠르며 이동속도가 비정상적
-        rb.MovePosition(rb.position + playerData.movementSpeed * Time.fixedDeltaTime * inputDir.normalized);
+        GameManager.Data.playerPos = transform;
+
+        yield return null;
+    }
+
+    private IEnumerator MoveRoutine()
+    {
+        while (true)
+        {
+            // transform.position 보다 Moveposition이 더 부드럽게 움직임(Rigidbody의 Interpolate 옵션 때문)
+            // transform.position 으로 이동하는 경우 모든 Collider들이 Rigidbody의 위치를 재계산
+            // inputDir을 normalized 하지 않을 경우 대각선 이동이 더 빠르며 이동속도가 비정상적
+            rb.MovePosition(rb.position + playerData.movementSpeed * Time.fixedDeltaTime * inputDir.normalized);
+
+            yield return null;
+        }
     }
 
     private void OnMove(InputValue value)
