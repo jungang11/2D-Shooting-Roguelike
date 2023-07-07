@@ -17,6 +17,7 @@ public class DataManager : MonoBehaviour
     public ItemData fireData;
 
     public float gameTime;
+
     public float volume;
     public bool isMute;
     public bool isPrintDamage;
