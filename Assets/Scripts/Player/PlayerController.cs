@@ -71,10 +71,10 @@ public class PlayerController : MonoBehaviour
     {
         // 방어력이 데미지보다 클 경우 hp는 0.01f만 감소
         if (damage < playerData.armor)
-            hp -= 0.01f;
+            HP -= 0.01f;
         // 아닐 경우 
         else
-            hp -= (damage - playerData.armor);
+            HP -= (damage - playerData.armor);
 
         if (hp <= 0)
             Die();
